@@ -20,7 +20,7 @@ const ProjectCart = ({ imgUrl, title, description, gitUrl, previewUrl }: Iprojec
       </div>
       <div className="text-white rounded-b-xl bg-[#181818] py-6 px-4">
         <h2 className="text-xl font-semibold mb-2">{title}</h2>
-        <p className="text-[#ADB7BE]">{description}</p>
+        <p className="text-[#ADB7BE] text-xs md:text-base">{description}</p>
       </div>
     </div>
   );

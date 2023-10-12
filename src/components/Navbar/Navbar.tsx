@@ -26,10 +26,6 @@ const NavLinks: Ilinks[] = [
     href: "#project",
   },
   {
-    title: "SKILL",
-    href: "#skill",
-  },
-  {
     title: "CONTACT",
     href: "#contact",
   },
