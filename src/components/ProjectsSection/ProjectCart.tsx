@@ -2,8 +2,7 @@
 import React from "react";
 import { Iproject } from "./ProjectsSection";
 import Link from "next/link";
-import { HiCodeBracket } from "react-icons/hi2";
-import { AiOutlineEye } from "react-icons/ai";
+import Image from "next/image";
 
 const ProjectCart = ({ imgUrl, title, description, gitUrl, previewUrl }: Iproject) => {
   return (
@@ -11,10 +10,10 @@ const ProjectCart = ({ imgUrl, title, description, gitUrl, previewUrl }: Iprojec
       <div className="h-52 md:h-72 rounded-t-xl relative group" style={{ background: `url(${imgUrl})`, backgroundSize: "cover" }}>
         <div className="overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500">
           <Link href={`${gitUrl}`} className="mx-4">
-            <HiCodeBracket className="h-10 w-10 text-[#ADB7BE] hover:text-white" />
+            <Image src={"/svg/codebracket.svg"} alt="codebracket" width={10} height={10} />
           </Link>
           <Link href={`${previewUrl}`} className="mx-4">
-            <AiOutlineEye className="h-10 w-10 text-[#ADB7BE] hover:text-white" />
+            <Image src={"/svg/eyeoff.svg"} alt="eyeoff" width={10} height={10} />
           </Link>
         </div>
       </div>
