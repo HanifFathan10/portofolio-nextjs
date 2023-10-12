@@ -3,8 +3,8 @@ import Image from "next/image";
 import React, { useState, useTransition } from "react";
 import TabButton from "./TabButton";
 import { TbBrandTypescript } from "react-icons/tb";
-import {SiNextdotjs, SiTailwindcss, SiJavascript, SiHtml5, SiCss3} from "react-icons/Si"
-import {FaReact, FaBootstrap} from "react-icons/Fa"
+import { SiNextdotjs, SiTailwindcss, SiJavascript, SiHtml5, SiCss3 } from "react-icons/Si";
+import { FaReact, FaBootstrap } from "react-icons/Fa";
 
 const AboutSection = ({ id }: { id: any }) => {
   const [tab, setTab] = useState("skill");
