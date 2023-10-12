@@ -6,7 +6,7 @@ type Props = {
   imgUrl?: any;
 };
 
-export async function MetaHead({ title, defaultTitle = "Huhuy", description, Url = "http://localhost:3000", imgUrl = "https://metatags.io/images/meta-tags.png" }: Props) {
+export async function MetaHead({ title, defaultTitle = "Haniep Fathan R", description, Url = "https://haniep-portofolio.vercel.app", imgUrl = "/img/portogw.png" }: Props) {
   return (
     <head>
       <title>{title + " | " + defaultTitle}</title>
