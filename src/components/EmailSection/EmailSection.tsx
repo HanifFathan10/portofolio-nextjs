@@ -32,27 +32,27 @@ const EmailSection = ({ id }: {id: any}) => {
   return (
     <section className="grid md:grid-cols-2 my-12 md:md-12 py-24 gap-4 relative" id={id}>
       <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 mt-24 md:mt-0 transform -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="z-10">
+      <div className="z-10 mb-10 md:mb-0">
         <h5 className="text-xl font-bold text-white my-2">Let's Connect</h5>
         <p className="text-[#ADB7BE] mb-4 max-w-md">Follow my social media😎</p>
         <div className="socials flex flex-row gap-4">
-          <Link href={"github.com"}>
+          <Link href={"https://wa.me/6285714367468"}>
             <Image src={"/img/Email/whatsapp.svg"} alt="github" width={30} height={30} />
           </Link>
-          <Link href={"github.com"}>
+          <Link href={"https://www.instagram.com/haniffthn__"}>
             <Image src={"/img/Email/instagram.svg"} alt="github" width={30} height={30} />
           </Link>
-          <Link href={"github.com"}>
+          <Link href={'https://www.linkedin.com/in/haniep-fathan'}>
             <Image src={"/img/Email/linkedin.svg"} alt="github" width={30} height={30} />
           </Link>
-          <Link href={"github.com"}>
+          <Link href={'https://www.github.com/HanifFathan10'}>
             <Image src={"/img/Email/github.svg"} alt="github" width={30} height={30} />
           </Link>
         </div>
       </div>
       <div>
         <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-4 z-[100]">
-          <div className="mb-4">
+          <div className="">
             <label htmlFor="email" className="text-white block mb-2 text-sm font-medium">
               Your Email
             </label>

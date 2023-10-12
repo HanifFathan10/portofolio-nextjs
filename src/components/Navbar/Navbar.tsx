@@ -45,7 +45,7 @@ const Navbar = () => {
               <Image src="/img/menu.png" alt="hamburger" width={30} height={30} />
             </button>
           ) : (
-            <button onClick={() => setNavbarOpen(false)} className="flex items-center px-3 py-2 text-slate-200 hover:text-white hover:border-white">
+            <button onClick={() => setNavbarOpen(false)} id="closeImage" className="flex items-center px-3 py-2 text-slate-200 hover:text-white hover:border-white">
               <Image src="/img/cross-mark.png" alt="close" width={30} height={30} />
             </button>
           )}

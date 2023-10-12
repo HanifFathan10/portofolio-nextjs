@@ -24,7 +24,7 @@ const ProjectData: Iproject[] = [
   },
 ];
 
-const ProjectsSection = ({ id }: {id: any}) => {
+const ProjectsSection = ({ id }: { id: any }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -34,7 +34,7 @@ const ProjectsSection = ({ id }: {id: any}) => {
   };
   return (
     <section ref={ref} className="flex flex-col justify-center items-center" id={id}>
-      <h2 className="text-center text-4xl font-bold text-white my-4 ">My Project</h2>
+      <h2 className="text-center text-3xl md:text-4xl font-bold text-white my-4 ">My Project</h2>
       <ul className="flex max-w-xs md:max-w-xl mt-10 justify-center items-center">
         {ProjectData.map((project: Iproject, index) => {
           return (
