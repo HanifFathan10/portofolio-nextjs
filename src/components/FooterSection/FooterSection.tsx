@@ -1,12 +1,16 @@
-"use client"
+"use client";
 import React from "react";
 
 const FooterSection = () => {
   return (
-    <footer className="footer border border-t-[#33353F] border-l-transparent border-r-transparent text-white">
+    <footer className="border border-t-[#33353F] border-l-transparent border-r-transparent text-white">
       <div className="container p-12 flex justify-between">
-        <h1 className="text-xs sm:text-base md:text-lg font-semibold">Haniep Fathan</h1>
-        <p className="text-xs md:text-lg sm:text-base text-slate-600">All rights reserved</p>
+        <h1 className="text-xs sm:text-base md:text-lg font-semibold">
+          Haniep Fathan
+        </h1>
+        <p className="text-xs md:text-lg sm:text-base text-slate-600">
+          All rights reserved
+        </p>
       </div>
     </footer>
   );

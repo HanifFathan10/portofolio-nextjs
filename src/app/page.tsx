@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import AboutSection from "@/components/AboutSection/AboutSection";
 import EmailSection from "@/components/EmailSection/EmailSection";
 import FooterSection from "@/components/FooterSection/FooterSection";
@@ -8,15 +8,17 @@ import ProjectsSection from "@/components/ProjectsSection/ProjectsSection";
 
 export default function Home() {
   return (
-    <main className="flex flex-col min-h-screen bg-[#121212]">
-      <Navbar />
-      <div className="container mt-44 mx-auto px-12 py-4">
-        <HeroSection></HeroSection>
-        <AboutSection id="about" />
-        <ProjectsSection id="project" />
-        <EmailSection id="contact" />
+    <main className="flex flex-col min-h-screen items-center bg-[#121212]">
+      <div className="flex flex-col max-w-6xl">
+        <Navbar />
+        <div className="container mt-44 mx-auto px-12 py-4">
+          <HeroSection></HeroSection>
+          <AboutSection id="about" />
+          <ProjectsSection id="project" />
+          <EmailSection id="contact" />
+        </div>
+        <FooterSection></FooterSection>
       </div>
-      <FooterSection></FooterSection>
     </main>
   );
 }

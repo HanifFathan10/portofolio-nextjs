@@ -41,19 +41,38 @@ const Navbar = () => {
         </Link>
         <div className="block md:hidden">
           {!navbarOpen ? (
-            <button onClick={() => setNavbarOpen(true)} className="flex items-center px-3 py-2 text-slate-200 hover:text-white hover:border-white">
-              <Image src="/img/menu.png" alt="hamburger" width={30} height={30} />
+            <button
+              onClick={() => setNavbarOpen(true)}
+              className="flex items-center px-3 py-2 text-slate-200 hover:text-white hover:border-white"
+            >
+              <Image
+                src="/img/menu.png"
+                alt="hamburger"
+                width={30}
+                height={30}
+              />
             </button>
           ) : (
-            <button onClick={() => setNavbarOpen(false)} id="closeImage" className="flex items-center px-3 py-2 text-slate-200 hover:text-white hover:border-white">
-              <Image src="/img/cross-mark.png" alt="close" width={30} height={30} />
+            <button
+              onClick={() => setNavbarOpen(false)}
+              id="closeImage"
+              className="flex items-center px-3 py-2 text-slate-200 hover:text-white hover:border-white"
+            >
+              <Image
+                src="/img/cross-mark.png"
+                alt="close"
+                width={30}
+                height={30}
+              />
             </button>
           )}
         </div>
         <div className="menu hidden md:block md:w-auto" id="navbar">
           <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
             {NavLinks.map((link: Ilinks, index: number) => {
-              return <NavLink key={index} href={link.href} title={link.title} />;
+              return (
+                <NavLink key={index} href={link.href} title={link.title} />
+              );
             })}
           </ul>
         </div>
