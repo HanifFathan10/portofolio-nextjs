@@ -88,7 +88,7 @@ const AboutSection = ({ id }: { id: string }) => {
     <Reveal>
       <section className="text-white mt-44 sm:mt-20 min-h-screen" id={id}>
         <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 justify-between">
-          <Image src={"/img/About.jpg"} alt="about" width={300} height={300} className="rounded-lg border border-fuchsia-500 shadow-sky-500 shadow-2xl bg-cover bg-center" />
+          <Image src={"/img/about.jpg"} alt="about" width={300} height={300} className="rounded-lg border border-fuchsia-500 shadow-sky-500 shadow-2xl bg-cover bg-center overflow-hidden" />
           <div className="mt-20 md:mt-0 text-lg flex flex-col h-full">
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">About Me</h1>
             <p className="text-xs lg:text-sm">I'm Haniep Fathan Riziq, a recent high school graduate, I have a keen interest in the field of programming and have mastered the fundamentals of web development. I am proficient in the javascript programming language along with its frameworks and libraries. My goal is to become an expert in the Frontend role, and with my adaptive, creative, and innovative personality, I am confident that I can thrive in this industry</p>
