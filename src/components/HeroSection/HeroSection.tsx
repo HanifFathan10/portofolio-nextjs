@@ -19,7 +19,7 @@ const HeroSection = () => {
   return (
     <section>
       <div className="flex max-md:flex-col min-h-screen items-center-center justify-center gap-16">
-        <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="col-span-4 place-self-center text-left">
+        <motion.div initial={{ x: "-10vw", y: "-10vw" }} animate={{ x: 0, y: 0 }} transition={{ duration: 1.1 }} className="col-span-4 place-self-center text-left">
           <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-5xl font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-700 via-cyan-500 to-cyan-300">Hello, I'm</span>
             <br />
@@ -37,8 +37,8 @@ const HeroSection = () => {
             </button>
           </div>
         </motion.div>
-        <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="col-span-5 place-self-center">
-          <div className="rounded-full bg-transparent shadow-sky-400 shadow-2xl w-[240px] h-[240px] sm:w-[250px] sm:h-[250px] md:h-[300px] md:w-[300px] lg:w-[350px] lg:h-[350px] overflow-hidden">
+        <motion.div initial={{ x: "10vw", y: "10vw" }} animate={{ x: 0, y: 0 }} transition={{ duration: 1.1 }} className="col-span-5 place-self-center">
+          <div className="rounded-full bg-transparent shadow-sky-400 shadow-2xl w-[240px] h-[240px] sm:w-[250px] sm:h-[250px] md:h-[300px] md:w-[300px] lg:w-[350px] lg:h-[350px] border border-fuchsia-300 overflow-hidden">
             <Image src="/img/hanif.png" alt="hanif image" className="relative -top-[32px] md:-top-[16px] left-8 md:left-[56px] lg:-top-3 lg:left-16 w-[180px] h-auto lg:w-[220px]" width={180} height={180} />
           </div>
         </motion.div>
