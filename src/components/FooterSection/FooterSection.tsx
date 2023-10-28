@@ -3,7 +3,7 @@ import React from "react";
 
 const FooterSection = () => {
   return (
-    <footer className="border border-t-[#33353F] border-l-transparent border-r-transparent text-white">
+    <footer className="border border-t-[#33353F] border-l-transparent border-r-transparent text-white z-[9999]">
       <div className="container p-12 flex justify-between">
         <h1 className="text-xs sm:text-base md:text-lg font-semibold">
           Haniep Fathan
