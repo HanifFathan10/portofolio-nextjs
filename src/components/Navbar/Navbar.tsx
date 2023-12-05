@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MenuOverlay from "./MenuOverlay";
 import Image from "next/image";
 import NavLink from "./NavLink";
@@ -32,6 +32,17 @@ const NavLinks: Ilinks[] = [
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+
+  useEffect(() => {
+    const handleClick = (e: any) => {
+      if (e.target.closest(".toggle-button") === null) {
+        setNavbarOpen(false);
+      }
+    };
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
+  }, []);
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-10 bg-transparent bg-opacity-90">
       <div className="flex flex-wrap items-center justify-between mx-auto px-4 py-2">
@@ -40,17 +51,17 @@ const Navbar = () => {
         </Link>
         <div className="block md:hidden">
           {!navbarOpen ? (
-            <button onClick={() => setNavbarOpen(true)} className="flex items-center px-3 py-2 text-slate-200 hover:text-white hover:border-white">
-              <Image src="/img/menu.png" alt="hamburger" width={30} height={30} />
+            <button onClick={() => setNavbarOpen(true)} className="flex items-center px-3 py-2 text-slate-200 hover:text-white hover:border-white toggle-button">
+              <Image src="/img/menu.webp" alt="hamburger" width={30} height={30} fetchPriority="high" />
             </button>
           ) : (
-            <button onClick={() => setNavbarOpen(false)} id="closeImage" className="flex items-center px-3 py-2 text-slate-200 hover:text-white hover:border-white">
-              <Image src="/img/cross-mark.png" alt="close" width={30} height={30} />
+            <button onClick={() => setNavbarOpen(false)} className="flex items-center px-3 py-2 text-slate-200 hover:text-white hover:border-white toggle-button">
+              <Image src="/img/cross-mark.webp" alt="close" width={30} height={30} fetchPriority="high" />
             </button>
           )}
         </div>
         <div className="menu hidden md:block md:w-auto" id="navbar">
-          <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
+          <ul className="flex md:p-0 md:flex-row md:space-x-8 mt-0">
             {NavLinks.map((link: Ilinks, index: number) => {
               return <NavLink key={index} href={link.href} title={link.title} />;
             })}

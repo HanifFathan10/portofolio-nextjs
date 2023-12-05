@@ -11,7 +11,7 @@ const poppins = Poppins({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <MetaHead title="Welcome Guys" description="ini metadata untuk home page" />
+      <MetaHead title="Personal Website" description="ini metadata untuk home page" />
       <body className={poppins.className}>{children}</body>
     </html>
   );

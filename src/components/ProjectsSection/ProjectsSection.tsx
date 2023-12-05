@@ -20,7 +20,7 @@ const ProjectData: Iproject[] = [
     title: "CiniKupi",
     description:
       "coffe shop website dengan tech stak untuk Frontend: ReactJs, Backend: NodeJs dan ExpressJs, Database: MongoDB, web ini saya buat untuk mengasah skill ReactJs saya dan mencoba mengimplementasikan intergrasi API dengan API yang saya buat.",
-    image: "/img/project/cinikupiii.png",
+    image: "/img/project/cinikupiii.webp",
     gitUrl: "https://github.com/HanifFathan10/CiniKupiReactJs",
     previewUrl: "https://cini-kupi.vercel.app",
   },
