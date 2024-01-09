@@ -4,6 +4,7 @@ import React, { useState, useTransition } from "react";
 import TabButton from "./TabButton";
 import { Reveal } from "../Reveal";
 import ListSkills from "./ListSkills";
+import Marquee from "react-fast-marquee";
 
 const AboutSection = ({ id }: { id: string }) => {
   const [tab, setTab] = useState("skill");
@@ -71,6 +72,26 @@ const AboutSection = ({ id }: { id: string }) => {
       skill: "MONGODB",
       svg: "/svg/mongodb.svg",
     },
+    {
+      id: "PHP",
+      skill: "PHP",
+      svg: "/svg/php.svg",
+    },
+    {
+      id: "REACT-ROUTER",
+      skill: "REACT ROUTER",
+      svg: "/svg/react-router.svg",
+    },
+    {
+      id: "REACT-REDUX",
+      skill: "REACT REDUX",
+      svg: "/svg/react-redux.svg",
+    },
+    {
+      id: "ZUSTAND",
+      skill: "ZUSTAND",
+      svg: "/svg/zustand.svg",
+    },
   ];
 
   const TAB_DATA = [
@@ -78,18 +99,26 @@ const AboutSection = ({ id }: { id: string }) => {
       title: "Skills",
       id: "skill",
       content: (
-        <div className="flex gap-5 pl-2 font-semibold text-base text-[#eaeaea]">
-          <div className="flex flex-col mt-2 font-semibold">
-            {ListData.slice(0, 6).map((result, i) => (
-              <ListSkills src={result.svg} title={result.skill} key={i} />
-            ))}
+        <React.Fragment>
+          <h1 className="font-bold my-2">My Coding Skills.</h1>
+          <div className="w-60 sm:w-full flex flex-col overflow-x-hidden space-y-1">
+            <Marquee speed={30} pauseOnHover={true} className="py-2">
+              {ListData.map((result, i) => (
+                <ListSkills src={result.svg} title={result.skill} key={i} />
+              ))}
+            </Marquee>
+            <Marquee
+              speed={30}
+              pauseOnHover={true}
+              className="py-2"
+              direction="right"
+            >
+              {ListData.map((result, i) => (
+                <ListSkills src={result.svg} title={result.skill} key={i} />
+              ))}
+            </Marquee>
           </div>
-          <div className="flex flex-col mt-2 font-semibold">
-            {ListData.slice(6, 11).map((result, i) => (
-              <ListSkills src={result.svg} title={result.skill} key={i} />
-            ))}
-          </div>
-        </div>
+        </React.Fragment>
       ),
     },
     {
@@ -98,7 +127,14 @@ const AboutSection = ({ id }: { id: string }) => {
       content: (
         <ul className="pl-2 font-semibold">
           <li className="flex gap-2 mt-2">
-            <Image src={"/img/bppi.webp"} alt="bppi" width={20} height={20} className="rounded-lg" />
+            <Image
+              src={"/img/bppi.webp"}
+              alt="bppi"
+              width={20}
+              height={20}
+              fetchPriority="high"
+              className="rounded-lg"
+            />
             <h5>SMA BPPI BALEENDAH</h5>
           </li>
         </ul>
@@ -109,21 +145,40 @@ const AboutSection = ({ id }: { id: string }) => {
     <Reveal>
       <section className="text-white mt-44 sm:mt-20 min-h-screen" id={id}>
         <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 justify-between">
-          <Image src={"/img/about.webp"} alt="about" width={300} height={300} fetchPriority="high" className="rounded-lg border border-fuchsia-500 shadow-sky-500 shadow-2xl bg-cover bg-center overflow-hidden" />
-          <div className="mt-20 md:mt-0 text-lg flex flex-col h-full">
-            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">About Me</h1>
-            <p className="text-xs lg:text-sm">I'm Haniep Fathan Riziq, a recent high school graduate, I have a keen interest in the field of programming and have mastered the fundamentals of web development. I am proficient in the javascript programming language along with its frameworks and libraries. My goal is to become an expert in the Frontend role, and with my adaptive, creative, and innovative personality, I am confident that I can thrive in this industry</p>
-            <div className="flex flex-row justify-start mt-8">
-              <TabButton selectTab={() => HandleTabChange("skill")} active={tab === "skill"}>
+          <Image
+            src={"/img/about.webp"}
+            alt="about"
+            width={300}
+            height={300}
+            fetchPriority="high"
+            className="rounded-lg border border-fuchsia-500 shadow-sky-500 shadow-2xl bg-cover bg-center overflow-hidden"
+          />
+          <div className="container relative mt-20 md:mt-0 text-lg flex flex-col h-full">
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              About Me
+            </h1>
+            <p className="text-xs lg:text-sm font-jetBrains">
+              Hello, I am a Software Engineer with a strong focus on Frontend
+              development. Able of building a responsive and user-friendly
+              interface that prioritizes application performance.
+            </p>
+            <div className="flex justify-start mt-8">
+              <TabButton
+                selectTab={() => HandleTabChange("skill")}
+                active={tab === "skill"}
+              >
                 {" "}
                 Skills{" "}
               </TabButton>
-              <TabButton selectTab={() => HandleTabChange("education")} active={tab === "education"}>
+              <TabButton
+                selectTab={() => HandleTabChange("education")}
+                active={tab === "education"}
+              >
                 {" "}
                 Education{" "}
               </TabButton>
             </div>
-            <div className="flex flex-row">{TAB_DATA.find((t) => t.id === tab)?.content}</div>
+            {TAB_DATA.find((t) => t.id === tab)?.content}
           </div>
         </div>
       </section>
