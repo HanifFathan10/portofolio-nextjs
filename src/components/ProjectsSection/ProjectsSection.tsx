@@ -12,6 +12,7 @@ export interface Iproject {
   imgUrl?: string;
   gitUrl?: any;
   previewUrl?: any;
+  techStack?: any;
 }
 
 const ProjectData: Iproject[] = [
@@ -19,10 +20,58 @@ const ProjectData: Iproject[] = [
     id: 1,
     title: "CiniKupi",
     description:
-      "coffe shop website dengan tech stak untuk Frontend: ReactJs, Backend: NodeJs dan ExpressJs, Database: MongoDB, web ini saya buat untuk mengasah skill ReactJs saya dan mencoba mengimplementasikan intergrasi API dengan API yang saya buat.",
+      "The coffee shop website that I developed focuses on menu information and details of each of our menus. You can order it online on our website.",
     image: "/img/project/cinikupiii.webp",
     gitUrl: "https://github.com/HanifFathan10/CiniKupiReactJs",
     previewUrl: "https://cini-kupi.vercel.app",
+    techStack: [
+      {
+        id: "mongodb",
+        src: "/svg/mongodb.svg",
+        alt: "mongodb",
+      },
+      {
+        id: "express",
+        src: "/svg/express.svg",
+        alt: "express",
+      },
+      {
+        id: "react",
+        src: "/svg/react.svg",
+        alt: "react",
+      },
+      {
+        id: "nodejs",
+        src: "/svg/node.svg",
+        alt: "nodejs",
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Personal Website",
+    description:
+      "My personal website to introduce myself and store several project portfolios that I have developed",
+    image: "/img/project/web-personal.webp",
+    gitUrl: "https://github.com/HanifFathan10/portofolio-nextjs",
+    previewUrl: "https://haniep-portofolio.vercel.app",
+    techStack: [
+      {
+        id: "next",
+        src: "/svg/next.svg",
+        alt: "next",
+      },
+      {
+        id: "typescript",
+        src: "/svg/typescript.svg",
+        alt: "typescript",
+      },
+      {
+        id: "framer",
+        src: "/svg/framer.svg",
+        alt: "framer",
+      },
+    ],
   },
 ];
 
@@ -44,7 +93,7 @@ const ProjectsSection = ({ id }: { id: any }) => {
         <h2 className="text-center text-3xl md:text-4xl font-bold text-white my-4 ">
           My Project
         </h2>
-        <ul className="flex max-w-xs md:max-w-xl mt-10 justify-center items-center">
+        <ul className="flex flex-col lg:grid lg:grid-cols-2 mt-10 gap-5">
           {ProjectData.map((project: Iproject, index) => {
             return (
               <motion.li
@@ -61,6 +110,7 @@ const ProjectsSection = ({ id }: { id: any }) => {
                   imgUrl={project.image}
                   gitUrl={project.gitUrl}
                   previewUrl={project.previewUrl}
+                  techStack={project.techStack}
                 />
               </motion.li>
             );

@@ -18,14 +18,14 @@ const HeroSection = () => {
 
   return (
     <section>
-      <div className="flex max-md:flex-col min-h-screen items-center-center justify-center gap-16">
+      <div className="flex max-md:flex-col items-center-center justify-center gap-16 mt-40">
         <motion.div
           initial={{ x: "-10vw", y: "-10vw" }}
           animate={{ x: 0, y: 0 }}
           transition={{ duration: 1.5 }}
           className="col-span-4 place-self-center text-left"
         >
-          <h1 className="text-white mb-4 text-2xl sm:text-3xl md:text-4xl font-extrabold">
+          <h1 className="text-white mb-4 text-4xl font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-700 via-cyan-500 to-cyan-300">
               Hello, I'm
             </span>
@@ -42,11 +42,11 @@ const HeroSection = () => {
               wrapper="strong"
               speed={40}
               repeat={Infinity}
-              className={`${jetBrains.className}`}
+              className={`${jetBrains.className} text-2xl sm:text-3xl md:text-4xl`}
             />
           </h1>
           <p
-            className={`text-[#eaeaea] text-xs text-start sm:text-lg mb-6 font-jetBrains ${jetBrains.className}`}
+            className={`text-[#eaeaea] text-xs text-start sm:text-sm md:text-base mb-6 font-jetBrains ${jetBrains.className}`}
           >
             Hello, welcome to my portofolio website. If you're interested in
             collaborating, please contact the details bellow or send a message

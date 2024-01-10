@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState, useTransition } from "react";
 import TabButton from "./TabButton";
-import { Reveal } from "../Reveal";
+// import { Reveal } from "../Reveal";
 import ListSkills from "./ListSkills";
 import Marquee from "react-fast-marquee";
 import { jetBrains } from "@/app/layout";
@@ -93,6 +93,11 @@ const AboutSection = ({ id }: { id: string }) => {
       skill: "ZUSTAND",
       svg: "/svg/zustand.svg",
     },
+    {
+      id: "FRAMER",
+      skill: "FRAMER MOTION",
+      svg: "/svg/framer.svg",
+    },
   ];
 
   const TAB_DATA = [
@@ -103,17 +108,23 @@ const AboutSection = ({ id }: { id: string }) => {
         <React.Fragment>
           <h1 className="font-bold my-2">My Coding Skills.</h1>
           <div
-            className={`w-60 sm:w-full flex flex-col overflow-x-hidden space-y-1 ${jetBrains.className}`}
+            className={`max-w-[246px] sm:max-w-xl flex flex-col overflow-x-hidden space-y-1 ${jetBrains.className}`}
           >
-            <Marquee speed={30} pauseOnHover={true} className="py-2">
+            <Marquee
+              autoFill={true}
+              speed={30}
+              pauseOnHover={true}
+              className="py-2 overflow-x-hidden"
+            >
               {ListData.map((result, i) => (
                 <ListSkills src={result.svg} title={result.skill} key={i} />
               ))}
             </Marquee>
             <Marquee
+              autoFill={true}
               speed={30}
               pauseOnHover={true}
-              className="py-2"
+              className="py-2 overflow-x-hidden"
               direction="right"
             >
               {ListData.map((result, i) => (
@@ -145,47 +156,45 @@ const AboutSection = ({ id }: { id: string }) => {
     },
   ];
   return (
-    <Reveal>
-      <section className="text-white mt-44 sm:mt-20 min-h-screen" id={id}>
-        <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 justify-between">
-          <Image
-            src={"/img/about.webp"}
-            alt="about"
-            width={300}
-            height={300}
-            fetchPriority="high"
-            className="rounded-lg border border-fuchsia-500 shadow-sky-500 shadow-2xl bg-cover bg-center overflow-hidden"
-          />
-          <div className="container relative mt-20 md:mt-0 text-lg flex flex-col h-full">
-            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              About Me
-            </h1>
-            <p className={`text-xs lg:text-sm ${jetBrains.className}`}>
-              Hello, I am a Software Engineer with a strong focus on Frontend
-              development. Able of building a responsive and user-friendly
-              interface that prioritizes application performance.
-            </p>
-            <div className="flex justify-start mt-8">
-              <TabButton
-                selectTab={() => HandleTabChange("skill")}
-                active={tab === "skill"}
-              >
-                {" "}
-                Skills{" "}
-              </TabButton>
-              <TabButton
-                selectTab={() => HandleTabChange("education")}
-                active={tab === "education"}
-              >
-                {" "}
-                Education{" "}
-              </TabButton>
-            </div>
-            {TAB_DATA.find((t) => t.id === tab)?.content}
+    <section className="text-white mt-44 mb-20 sm:mt-20" id={id}>
+      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 justify-between">
+        <Image
+          src={"/img/about.webp"}
+          alt="about"
+          width={300}
+          height={300}
+          fetchPriority="high"
+          className="rounded-lg border border-fuchsia-500 shadow-sky-500 shadow-2xl bg-cover bg-center overflow-hidden"
+        />
+        <div className="mt-20 md:mt-0 text-lg flex flex-col">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            About Me
+          </h1>
+          <p className={`text-xs lg:text-sm ${jetBrains.className}`}>
+            Hello, I am a Software Engineer with a strong focus on Frontend
+            development. Able of building a responsive and user-friendly
+            interface that prioritizes application performance.
+          </p>
+          <div className="flex justify-start mt-8">
+            <TabButton
+              selectTab={() => HandleTabChange("skill")}
+              active={tab === "skill"}
+            >
+              {" "}
+              Skills{" "}
+            </TabButton>
+            <TabButton
+              selectTab={() => HandleTabChange("education")}
+              active={tab === "education"}
+            >
+              {" "}
+              Education{" "}
+            </TabButton>
           </div>
+          {TAB_DATA.find((t) => t.id === tab)?.content}
         </div>
-      </section>
-    </Reveal>
+      </div>
+    </section>
   );
 };
 
