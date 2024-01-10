@@ -5,6 +5,7 @@ import TabButton from "./TabButton";
 import { Reveal } from "../Reveal";
 import ListSkills from "./ListSkills";
 import Marquee from "react-fast-marquee";
+import { jetBrains } from "@/app/layout";
 
 const AboutSection = ({ id }: { id: string }) => {
   const [tab, setTab] = useState("skill");
@@ -101,7 +102,9 @@ const AboutSection = ({ id }: { id: string }) => {
       content: (
         <React.Fragment>
           <h1 className="font-bold my-2">My Coding Skills.</h1>
-          <div className="w-60 sm:w-full flex flex-col overflow-x-hidden space-y-1">
+          <div
+            className={`w-60 sm:w-full flex flex-col overflow-x-hidden space-y-1 ${jetBrains.className}`}
+          >
             <Marquee speed={30} pauseOnHover={true} className="py-2">
               {ListData.map((result, i) => (
                 <ListSkills src={result.svg} title={result.skill} key={i} />
@@ -157,7 +160,7 @@ const AboutSection = ({ id }: { id: string }) => {
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
               About Me
             </h1>
-            <p className="text-xs lg:text-sm font-jetBrains">
+            <p className={`text-xs lg:text-sm ${jetBrains.className}`}>
               Hello, I am a Software Engineer with a strong focus on Frontend
               development. Able of building a responsive and user-friendly
               interface that prioritizes application performance.

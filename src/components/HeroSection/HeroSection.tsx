@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
-
+import { jetBrains } from "@/app/layout";
 export interface TypeAnimationProps {
   sequence: Array<string | number>;
   wrapper?: string;
@@ -42,10 +42,12 @@ const HeroSection = () => {
               wrapper="strong"
               speed={40}
               repeat={Infinity}
-              className="font-jetBrains"
+              className={`${jetBrains.className}`}
             />
           </h1>
-          <p className="text-[#eaeaea] text-xs text-start sm:text-lg mb-6 font-jetBrains">
+          <p
+            className={`text-[#eaeaea] text-xs text-start sm:text-lg mb-6 font-jetBrains ${jetBrains.className}`}
+          >
             Hello, welcome to my portofolio website. If you're interested in
             collaborating, please contact the details bellow or send a message
             on my Instagram😉
@@ -79,6 +81,7 @@ const HeroSection = () => {
               src="/img/hanif.webp"
               alt="hanif image"
               fetchPriority="high"
+              loading="eager"
               width={180}
               height={180}
               className="lg:mt-7"

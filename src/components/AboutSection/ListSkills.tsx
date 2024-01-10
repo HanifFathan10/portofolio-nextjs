@@ -17,9 +17,7 @@ const ListSkills = ({ src, title }: Props) => {
         height={16}
         className="bg-transparent"
       />
-      <h1 className="text-[12px] md:text-xs font-bold font-jetBrains">
-        {title}
-      </h1>
+      <h1 className="text-[12px] md:text-xs font-bold">{title}</h1>
     </div>
   );
 };

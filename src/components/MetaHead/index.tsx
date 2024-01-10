@@ -18,6 +18,7 @@ export async function MetaHead({
       <title>{title + " | " + defaultTitle}</title>
       <meta name="title" content={title + " | " + defaultTitle} />
       <meta name="description" content={description} />
+      <link rel="shortcut icon" href="/img/hanif.webp" />
 
       <meta property="og:type" content="website" />
       <meta property="og:url" content={Url} />
