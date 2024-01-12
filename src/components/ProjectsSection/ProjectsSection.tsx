@@ -45,6 +45,16 @@ const ProjectData: Iproject[] = [
         src: "/svg/node.svg",
         alt: "nodejs",
       },
+      {
+        id: "tailwind",
+        src: "/svg/tailwind.svg",
+        alt: "tailwind",
+      },
+      {
+        id: "chalraUI",
+        src: "/svg/chakraUI.svg",
+        alt: "chalraUI",
+      },
     ],
   },
   {
@@ -70,6 +80,11 @@ const ProjectData: Iproject[] = [
         id: "framer",
         src: "/svg/framer.svg",
         alt: "framer",
+      },
+      {
+        id: "tailwind",
+        src: "/svg/tailwind.svg",
+        alt: "tailwind",
       },
     ],
   },

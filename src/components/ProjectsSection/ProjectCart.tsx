@@ -1,5 +1,5 @@
 "use client";
-import React, { Key } from "react";
+import React, { Key, ReactNode } from "react";
 import { Iproject } from "./ProjectsSection";
 import Link from "next/link";
 import Image from "next/image";
@@ -48,14 +48,14 @@ const ProjectCart = ({
         </div>
         <div className="flex gap-3">
           {techStack.map((stack: any, i: Key) => (
-            <img
+            <Image
               key={i}
               src={stack.src}
               alt={stack.alt}
               width={24}
               height={24}
               className={
-                stack.id === "express" ? "rounded-full p-1 bg-[#ffffff]" : ""
+                stack.id == "express" ? "rounded-full p-1 bg-[#ffffff]" : ""
               }
               fetchPriority="high"
             />

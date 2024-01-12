@@ -98,6 +98,11 @@ const AboutSection = ({ id }: { id: string }) => {
       skill: "FRAMER MOTION",
       svg: "/svg/framer.svg",
     },
+    {
+      id: "CHAKRA",
+      skill: "CHAKRA UI",
+      svg: "/svg/chakraUI.svg",
+    },
   ];
 
   const TAB_DATA = [
@@ -108,13 +113,13 @@ const AboutSection = ({ id }: { id: string }) => {
         <React.Fragment>
           <h1 className="font-bold my-2">My Coding Skills.</h1>
           <div
-            className={`max-w-[246px] sm:max-w-xl flex flex-col overflow-x-hidden space-y-1 ${jetBrains.className}`}
+            className={`grid grid-rows-2 place-content-center space-y-1 ${jetBrains.className}`}
           >
             <Marquee
               autoFill={true}
               speed={30}
               pauseOnHover={true}
-              className="py-2 overflow-x-hidden"
+              className=" py-2"
             >
               {ListData.map((result, i) => (
                 <ListSkills src={result.svg} title={result.skill} key={i} />
@@ -124,7 +129,7 @@ const AboutSection = ({ id }: { id: string }) => {
               autoFill={true}
               speed={30}
               pauseOnHover={true}
-              className="py-2 overflow-x-hidden"
+              className=" py-2"
               direction="right"
             >
               {ListData.map((result, i) => (
@@ -156,43 +161,44 @@ const AboutSection = ({ id }: { id: string }) => {
     },
   ];
   return (
-    <section className="text-white mt-44 mb-20 sm:mt-20" id={id}>
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 justify-between">
-        <Image
-          src={"/img/about.webp"}
-          alt="about"
-          width={300}
-          height={300}
-          fetchPriority="high"
-          className="rounded-lg border border-fuchsia-500 shadow-sky-500 shadow-2xl bg-cover bg-center overflow-hidden"
-        />
-        <div className="mt-20 md:mt-0 text-lg flex flex-col">
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            About Me
-          </h1>
-          <p className={`text-xs lg:text-sm ${jetBrains.className}`}>
-            Hello, I am a Software Engineer with a strong focus on Frontend
-            development. Able of building a responsive and user-friendly
-            interface that prioritizes application performance.
-          </p>
-          <div className="flex justify-start mt-8">
-            <TabButton
-              selectTab={() => HandleTabChange("skill")}
-              active={tab === "skill"}
-            >
-              {" "}
-              Skills{" "}
-            </TabButton>
-            <TabButton
-              selectTab={() => HandleTabChange("education")}
-              active={tab === "education"}
-            >
-              {" "}
-              Education{" "}
-            </TabButton>
-          </div>
-          {TAB_DATA.find((t) => t.id === tab)?.content}
+    <section
+      className="md:grid md:grid-cols-2 gap-8 flex flex-col items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 justify-center text-white mt-44 mb-20 sm:mt-20"
+      id={id}
+    >
+      <Image
+        src={"/img/about.webp"}
+        alt="about"
+        width={300}
+        height={300}
+        fetchPriority="high"
+        className="rounded-lg border border-fuchsia-500 shadow-sky-500 shadow-2xl bg-cover bg-center"
+      />
+      <div className="w-full mt-20 md:mt-0 text-lg flex flex-col ">
+        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          About Me
+        </h1>
+        <p className={`text-xs lg:text-sm ${jetBrains.className}`}>
+          Hello, I am a Software Engineer with a strong focus on Frontend
+          development. Able of building a responsive and user-friendly interface
+          that prioritizes application performance.
+        </p>
+        <div className="flex justify-start mt-8">
+          <TabButton
+            selectTab={() => HandleTabChange("skill")}
+            active={tab === "skill"}
+          >
+            {" "}
+            Skills{" "}
+          </TabButton>
+          <TabButton
+            selectTab={() => HandleTabChange("education")}
+            active={tab === "education"}
+          >
+            {" "}
+            Education{" "}
+          </TabButton>
         </div>
+        {TAB_DATA.find((t) => t.id === tab)?.content}
       </div>
     </section>
   );
