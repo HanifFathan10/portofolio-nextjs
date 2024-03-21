@@ -103,6 +103,11 @@ const AboutSection = ({ id }: { id: string }) => {
       skill: "CHAKRA UI",
       svg: "/svg/chakraUI.svg",
     },
+    {
+      id: "LARAVEL",
+      skill: "LARAVEL",
+      svg: "/svg/laravel.svg",
+    },
   ];
 
   const TAB_DATA = [
@@ -113,14 +118,12 @@ const AboutSection = ({ id }: { id: string }) => {
         <React.Fragment>
           <h1 className="font-bold my-2">My Coding Skills.</h1>
           <div
-            className={`grid grid-rows-2 place-content-center space-y-1 ${jetBrains.className}`}
-          >
+            className={`grid grid-rows-2 place-content-center space-y-1 ${jetBrains.className}`}>
             <Marquee
               autoFill={true}
               speed={30}
               pauseOnHover={true}
-              className=" py-2"
-            >
+              className=" py-2">
               {ListData.map((result, i) => (
                 <ListSkills src={result.svg} title={result.skill} key={i} />
               ))}
@@ -130,8 +133,7 @@ const AboutSection = ({ id }: { id: string }) => {
               speed={30}
               pauseOnHover={true}
               className=" py-2"
-              direction="right"
-            >
+              direction="right">
               {ListData.map((result, i) => (
                 <ListSkills src={result.svg} title={result.skill} key={i} />
               ))}
@@ -144,17 +146,44 @@ const AboutSection = ({ id }: { id: string }) => {
       title: "Education",
       id: "education",
       content: (
-        <ul className="pl-2 font-semibold">
-          <li className="flex gap-2 mt-2">
+        <ul className=" font-semibold">
+          <li className="flex gap-2 mt-2 items-center">
             <Image
               src={"/img/bppi.webp"}
               alt="bppi"
               width={20}
               height={20}
               fetchPriority="high"
-              className="rounded-lg"
+              className="rounded-lg w-auto h-auto"
             />
             <h5>SMA BPPI BALEENDAH</h5>
+          </li>
+        </ul>
+      ),
+    },
+    {
+      title: "Experience",
+      id: "experience",
+      content: (
+        <ul>
+          <li className="flex gap-2">
+            <div className="w-1 mt-3 h-48 bg-fuchsia-800 rounded"></div>
+            <div>
+              <h5 className="font-bold my-2">Frontend Developer</h5>
+              <p className="text-xs">
+                Internship at <span className="font-bold">Kawan Kerja</span>
+              </p>
+              <p className="text-xs font-extralight">
+                Desember 2023 - March 2024
+              </p>
+              <img
+                src="/img/sertifikat-kawankerja.jpg"
+                alt="kawankerja"
+                width={20}
+                height={20}
+                className="w-52 h-32 object-contain"
+              />
+            </div>
           </li>
         </ul>
       ),
@@ -162,16 +191,15 @@ const AboutSection = ({ id }: { id: string }) => {
   ];
   return (
     <section
-      className="md:grid md:grid-cols-2 gap-8 flex flex-col items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 justify-center text-white mt-44 mb-20 sm:mt-20"
-      id={id}
-    >
+      className="md:grid md:grid-cols-2 gap-8 flex flex-col items-start p-8 xl:gap-16 sm:py-16 xl:px-16 justify-center text-white mt-44 mb-20 sm:mt-20"
+      id={id}>
       <Image
         src={"/img/about.webp"}
         alt="about"
         width={300}
         height={300}
         fetchPriority="high"
-        className="rounded-lg border border-fuchsia-500 shadow-sky-500 shadow-2xl bg-cover bg-center"
+        className="rounded-lg border border-fuchsia-500 shadow-sky-500 shadow-2xl bg-cover bg-center place-self-center"
       />
       <div className="w-full mt-20 md:mt-0 text-lg flex flex-col ">
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -182,18 +210,22 @@ const AboutSection = ({ id }: { id: string }) => {
           development. Able of building a responsive and user-friendly interface
           that prioritizes application performance.
         </p>
-        <div className="flex justify-start mt-8">
+        <div className="flex justify-start mt-8 gap-4">
           <TabButton
             selectTab={() => HandleTabChange("skill")}
-            active={tab === "skill"}
-          >
+            active={tab === "skill"}>
             {" "}
             Skills{" "}
           </TabButton>
           <TabButton
+            selectTab={() => HandleTabChange("experience")}
+            active={tab === "experience"}>
+            {" "}
+            Experience{" "}
+          </TabButton>
+          <TabButton
             selectTab={() => HandleTabChange("education")}
-            active={tab === "education"}
-          >
+            active={tab === "education"}>
             {" "}
             Education{" "}
           </TabButton>

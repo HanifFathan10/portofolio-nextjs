@@ -1,8 +1,8 @@
 "use client";
 import React, { Key, ReactNode } from "react";
-import { Iproject } from "./ProjectsSection";
 import Link from "next/link";
 import Image from "next/image";
+import { Iproject } from "@/libs/interface";
 
 const ProjectCart = ({
   imgUrl,
@@ -20,8 +20,7 @@ const ProjectCart = ({
           background: `url(${imgUrl})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-        }}
-      >
+        }}>
         <div className="items-center justify-center absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500">
           <Link href={`${gitUrl}`} className="mx-4">
             <Image
@@ -47,19 +46,21 @@ const ProjectCart = ({
           <p className="text-[#ADB7BE] text-xs md:text-base">{description}</p>
         </div>
         <div className="flex gap-3">
-          {techStack.map((stack: any, i: Key) => (
-            <Image
-              key={i}
-              src={stack.src}
-              alt={stack.alt}
-              width={24}
-              height={24}
-              className={
-                stack.id == "express" ? "rounded-full p-1 bg-[#ffffff]" : ""
-              }
-              fetchPriority="high"
-            />
-          ))}
+          {techStack?.map(
+            (stack: { id: string; src: string; alt: string }, i: Key) => (
+              <Image
+                key={i}
+                src={stack.src}
+                alt={stack.alt}
+                width={24}
+                height={24}
+                className={
+                  stack.id == "express" ? "rounded-full p-1 bg-[#ffffff]" : ""
+                }
+                fetchPriority="high"
+              />
+            )
+          )}
         </div>
       </div>
     </section>

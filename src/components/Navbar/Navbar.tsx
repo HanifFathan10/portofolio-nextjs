@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { MouseEvent, useEffect, useState } from "react";
 import MenuOverlay from "./MenuOverlay";
 import Image from "next/image";
 import NavLink from "./NavLink";
@@ -24,6 +24,7 @@ const NavLinks: Ilinks[] = [
     title: "PROJECT",
     href: "#project",
   },
+
   {
     title: "CONTACT",
     href: "#contact",
@@ -53,8 +54,7 @@ const Navbar = () => {
           {!navbarOpen ? (
             <button
               onClick={() => setNavbarOpen(true)}
-              className="flex items-center px-3 py-2 text-slate-200 hover:text-white hover:border-white toggle-button"
-            >
+              className="flex items-center px-3 py-2 text-slate-200 hover:text-white hover:border-white toggle-button">
               <Image
                 src="/img/menu.webp"
                 alt="hamburger"
@@ -66,8 +66,7 @@ const Navbar = () => {
           ) : (
             <button
               onClick={() => setNavbarOpen(false)}
-              className="flex items-center px-3 py-2 text-slate-200 hover:text-white hover:border-white toggle-button"
-            >
+              className="flex items-center px-3 py-2 text-slate-200 hover:text-white hover:border-white toggle-button">
               <Image
                 src="/img/cross-mark.webp"
                 alt="close"

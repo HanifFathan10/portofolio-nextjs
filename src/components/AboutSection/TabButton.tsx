@@ -6,9 +6,9 @@ const TabButton = ({
   selectTab,
   children,
 }: {
-  active: any;
-  selectTab: any;
-  children: any;
+  active: boolean;
+  selectTab: () => void;
+  children: React.ReactNode;
 }) => {
   const buttonClasses = active
     ? "text-white border-b border-purle-500"
@@ -16,8 +16,7 @@ const TabButton = ({
   return (
     <button
       onClick={selectTab}
-      className={`mr-3 font-semibold hover:text-white ${buttonClasses}`}
-    >
+      className={`font-semibold hover:text-white ${buttonClasses}`}>
       {children}
     </button>
   );

@@ -3,17 +3,7 @@ import React, { useRef } from "react";
 import ProjectCart from "./ProjectCart";
 import { motion, useInView } from "framer-motion";
 import { Reveal } from "../Reveal";
-
-export interface Iproject {
-  id?: number;
-  title?: string;
-  description?: string;
-  image?: string;
-  imgUrl?: string;
-  gitUrl?: any;
-  previewUrl?: any;
-  techStack?: any;
-}
+import { Iproject } from "@/libs/interface";
 
 const ProjectData: Iproject[] = [
   {
@@ -88,6 +78,26 @@ const ProjectData: Iproject[] = [
       },
     ],
   },
+  {
+    id: 3,
+    title: "Hazelnote",
+    description: "Hazelnote, to do list app to create my to do list every day!",
+    image: "/img/project/hazelnote.png",
+    previewUrl: "#",
+    gitUrl: "https://github.com/HanifFathan10/hazelnote",
+    techStack: [
+      {
+        id: "laravel",
+        src: "/svg/laravel.svg",
+        alt: "laravel",
+      },
+      {
+        id: "react",
+        src: "/svg/react.svg",
+        alt: "react",
+      },
+    ],
+  },
 ];
 
 const ProjectsSection = ({ id }: { id: any }) => {
@@ -103,8 +113,7 @@ const ProjectsSection = ({ id }: { id: any }) => {
       <section
         ref={ref}
         className="flex flex-col justify-center items-center"
-        id={id}
-      >
+        id={id}>
         <h2 className="text-center text-3xl md:text-4xl font-bold text-white my-4 ">
           My Project
         </h2>
@@ -115,9 +124,8 @@ const ProjectsSection = ({ id }: { id: any }) => {
                 variants={cartVariants}
                 initial="initial"
                 animate={isInView ? "animate" : "initial"}
-                transition={{ duration: 0.3, delay: (index = 0.4) }}
-                key={index}
-              >
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                key={index}>
                 <ProjectCart
                   key={project.id}
                   title={project.title}

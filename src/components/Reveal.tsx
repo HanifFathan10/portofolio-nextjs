@@ -17,7 +17,15 @@ export const Reveal = ({ children, className }: Ireveal) => {
   }, [IsInView]);
   return (
     <main ref={ref}>
-      <motion.div className={className} variants={{ hidden: { opacity: 1, y: 100 }, visible: { opacity: 1, y: 0 } }} initial="hidden" animate={mainControls} transition={{ duration: 0.5, delay: 0.25 }}>
+      <motion.div
+        className={className}
+        variants={{
+          hidden: { opacity: 1, y: 100 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        initial="hidden"
+        animate={mainControls}
+        transition={{ duration: 0.5, delay: 0.25 }}>
         {children}
       </motion.div>
     </main>

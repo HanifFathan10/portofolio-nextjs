@@ -2,8 +2,8 @@ type Props = {
   title: string;
   description: string;
   defaultTitle?: string;
-  Url?: any;
-  imgUrl?: any;
+  Url?: string;
+  imgUrl?: string;
 };
 
 export async function MetaHead({
