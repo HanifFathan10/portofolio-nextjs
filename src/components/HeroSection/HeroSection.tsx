@@ -11,11 +11,11 @@ const HeroSection = () => {
 
   return (
     <section>
-      <div className="flex max-md:flex-col items-center-center justify-center gap-2 md:gap-16 px-8 lg:px-16">
+      <div className="max-md:h-screen flex max-md:flex-col items-center justify-center gap-2 md:gap-16 px-8 lg:px-16">
         <motion.div
           initial={{ x: "-10vw", y: "-10vw" }}
           animate={{ x: 0, y: 0 }}
-          transition={{ duration: 1.5 }}
+          transition={{ duration: 2 }}
           className="col-span-4 place-self-center text-left">
           <h1 className="text-white mb-4 text-4xl font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-700 via-cyan-500 to-cyan-300">

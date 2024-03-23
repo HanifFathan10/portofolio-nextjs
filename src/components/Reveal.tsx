@@ -1,14 +1,10 @@
 "use client";
+import { Ireveal } from "@/libs/interface";
 import { useAnimation, useInView, motion } from "framer-motion";
 import React, { useEffect, useRef } from "react";
 
-interface Ireveal {
-  children?: JSX.Element;
-  className?: string;
-}
-
 export const Reveal = ({ children, className }: Ireveal) => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const IsInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
 
@@ -20,12 +16,15 @@ export const Reveal = ({ children, className }: Ireveal) => {
       <motion.div
         className={className}
         variants={{
-          hidden: { opacity: 1, y: 100 },
-          visible: { opacity: 1, y: 0 },
+          hidden: { opacity: 1, y: 380 },
+          visible: { opacity: 1, y: 50 },
+          exit: { opacity: 1, y: 200 },
+          initial: { opacity: 0, y: 0 },
+          animate: { opacity: 1, y: 250 },
         }}
         initial="hidden"
         animate={mainControls}
-        transition={{ duration: 0.5, delay: 0.25 }}>
+        transition={{ duration: 1, delay: 0.5 }}>
         {children}
       </motion.div>
     </main>

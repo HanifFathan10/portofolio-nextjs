@@ -100,13 +100,15 @@ const ProjectData: Iproject[] = [
   },
 ];
 
-const ProjectsSection = ({ id }: { id: any }) => {
-  const ref = useRef(null);
+const ProjectsSection = ({ id }: { id: string }) => {
+  const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, { once: true });
 
   const cartVariants = {
     initials: { y: 50, opacity: 0 },
     animate: { y: 0, opacity: 1 },
+    exit: { y: 50, opacity: 0 },
+    initial: { y: 0, opacity: 1 },
   };
   return (
     <Reveal>
