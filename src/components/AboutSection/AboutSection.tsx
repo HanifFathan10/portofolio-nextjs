@@ -189,10 +189,10 @@ const AboutSection = ({ id }: { id: string }) => {
     },
   ];
   return (
-    <Reveal>
-      <section
-        className="md:grid md:grid-cols-2 gap-8 flex flex-col items-start p-8 xl:gap-16 sm:py-16 xl:px-16 justify-center text-white mt-20 mb-20 sm:mt-20"
-        id={id}>
+    <section
+      className="md:grid md:grid-cols-2 gap-8 flex flex-col items-start p-8 xl:gap-16 sm:py-16 xl:px-16 justify-center text-white mb-20 sm:mt-20"
+      id={id}>
+      <Reveal>
         <Image
           src={"/img/about.webp"}
           alt="about"
@@ -201,6 +201,8 @@ const AboutSection = ({ id }: { id: string }) => {
           fetchPriority="high"
           className="rounded-lg border border-fuchsia-500 shadow-sky-500 shadow-2xl bg-cover bg-center place-self-center"
         />
+      </Reveal>
+      <Reveal>
         <div className="w-full mt-20 md:mt-0 text-lg flex flex-col ">
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
             About Me
@@ -232,8 +234,8 @@ const AboutSection = ({ id }: { id: string }) => {
           </div>
           {TAB_DATA.find((t) => t.id === tab)?.content}
         </div>
-      </section>
-    </Reveal>
+      </Reveal>
+    </section>
   );
 };
 

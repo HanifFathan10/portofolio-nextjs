@@ -59,11 +59,11 @@ const EmailSection = ({ id }: { id: string }) => {
   }, [isMessageSent]);
 
   return (
-    <Reveal>
-      <section
-        className="grid md:grid-cols-2 my-12 md:md-12 py-24 gap-4 relative px-16"
-        id={id}>
-        <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-500 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 mt-24 md:mt-0 transform -translate-x-1/2 -translate-y-1/2"></div>
+    <section
+      className="grid md:grid-cols-2 my-12 md:md-12 py-24 gap-4 relative px-16"
+      id={id}>
+      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-500 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 mt-24 md:mt-0 transform -translate-x-1/2 -translate-y-1/2" />
+      <Reveal>
         <div className="z-10 mb-10 md:mb-0">
           <h1 className="font-bold text-white my-2">Let's Connect</h1>
           <p className="text-[#ADB7BE] mb-4 max-w-md">Follow my social media</p>
@@ -102,6 +102,8 @@ const EmailSection = ({ id }: { id: string }) => {
             </Link>
           </div>
         </div>
+      </Reveal>
+      <Reveal>
         <form
           ref={form}
           onSubmit={sendEmail}
@@ -174,8 +176,8 @@ const EmailSection = ({ id }: { id: string }) => {
             )}
           </div>
         </form>
-      </section>
-    </Reveal>
+      </Reveal>
+    </section>
   );
 };
 
