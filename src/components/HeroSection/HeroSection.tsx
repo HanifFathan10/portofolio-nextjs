@@ -63,7 +63,7 @@ const HeroSection = () => {
               src="/img/hanif.webp"
               alt="hanif image"
               fetchPriority="high"
-              loading="eager"
+              loading="lazy"
               width={180}
               height={180}
               quality={100}

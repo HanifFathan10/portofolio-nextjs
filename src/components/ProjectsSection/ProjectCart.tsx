@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Iproject } from "@/libs/interface";
 import { Reveal } from "../Reveal";
+import { jetBrains } from "@/app/layout";
 
 const ProjectCart = ({
   imgUrl,

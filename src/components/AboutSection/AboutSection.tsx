@@ -155,7 +155,9 @@ const AboutSection = ({ id }: { id: string }) => {
               fetchPriority="high"
               className="rounded-lg w-auto h-auto"
             />
-            <h5>SMA BPPI BALEENDAH</h5>
+            <h5 className={`text-base ${jetBrains.className}`}>
+              SMA BPPI BALEENDAH
+            </h5>
           </li>
         </ul>
       ),
@@ -170,10 +172,13 @@ const AboutSection = ({ id }: { id: string }) => {
             <div>
               <h5 className="font-bold my-2">Frontend Developer</h5>
               <p className="text-xs">
-                Internship at <span className="font-bold">Kawan Kerja</span>
+                Internship at{" "}
+                <span className={`text-xs font-bold ${jetBrains.className}`}>
+                  Kawan Kerja
+                </span>
               </p>
-              <p className="text-xs font-extralight">
-                Desember 2023 - March 2024
+              <p className={`text-xs font-extralight ${jetBrains.className}`}>
+                December 2023 - March 2024
               </p>
               <img
                 src="/img/sertifikat-kawankerja.jpg"
@@ -190,16 +195,16 @@ const AboutSection = ({ id }: { id: string }) => {
   ];
   return (
     <section
-      className="md:grid md:grid-cols-2 gap-8 flex flex-col items-start p-8 xl:gap-16 sm:py-16 xl:px-16 justify-center text-white mb-20 sm:mt-20"
+      className="md:grid md:grid-cols-2 gap-8 flex flex-col items-start place-self-center p-8 xl:gap-16 sm:py-16 xl:px-16 justify-center text-white mb-20 sm:mt-20"
       id={id}>
-      <Reveal>
+      <Reveal className="flex items-center justify-center">
         <Image
           src={"/img/about.webp"}
           alt="about"
           width={300}
           height={300}
           fetchPriority="high"
-          className="rounded-lg border border-fuchsia-500 shadow-sky-500 shadow-2xl bg-cover bg-center place-self-center"
+          className="rounded-lg border border-fuchsia-500 shadow-sky-500 shadow-2xl bg-cover bg-center bg-no-repeat"
         />
       </Reveal>
       <Reveal>

@@ -12,7 +12,7 @@ export const Reveal = ({ children, className }: Ireveal) => {
     IsInView && mainControls.start("visible");
   }, [IsInView]);
   return (
-    <main ref={ref}>
+    <main ref={ref} className="w-full">
       <motion.div
         className={className}
         variants={{
