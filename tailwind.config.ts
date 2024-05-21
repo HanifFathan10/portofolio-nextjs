@@ -9,8 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#121212",
         secondary: "#18191E",
+      },
+      fontFamily: {
+        poppins: ["var(--font-poppins)"],
+        jetBrains: ["var(--font-jetBrains)"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

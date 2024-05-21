@@ -6,6 +6,7 @@ import { Reveal } from "../Reveal";
 import ListSkills from "./ListSkills";
 import Marquee from "react-fast-marquee";
 import { jetBrains } from "@/app/layout";
+import HoverTildCard from "../Card/HoverTildCard";
 
 const AboutSection = ({ id }: { id: string }) => {
   const [tab, setTab] = useState("skill");
@@ -118,22 +119,17 @@ const AboutSection = ({ id }: { id: string }) => {
           <h1 className="font-bold my-2">My Coding Skills.</h1>
           <div
             className={`grid grid-rows-2 place-content-center space-y-1 ${jetBrains.className}`}>
-            <Marquee
-              autoFill={true}
-              speed={30}
-              pauseOnHover={true}
-              className=" py-2">
-              {ListData.map((result, i) => (
+            <Marquee autoFill={true} speed={70} className=" py-2">
+              {ListData.splice(0, 7).map((result, i) => (
                 <ListSkills src={result.svg} title={result.skill} key={i} />
               ))}
             </Marquee>
             <Marquee
               autoFill={true}
-              speed={30}
-              pauseOnHover={true}
+              speed={70}
               className=" py-2"
               direction="right">
-              {ListData.map((result, i) => (
+              {ListData.splice(8, 15).map((result, i) => (
                 <ListSkills src={result.svg} title={result.skill} key={i} />
               ))}
             </Marquee>
@@ -193,26 +189,18 @@ const AboutSection = ({ id }: { id: string }) => {
       ),
     },
   ];
+
   return (
     <section
-      className="md:grid md:grid-cols-2 gap-8 flex flex-col items-start place-self-center p-8 xl:gap-16 sm:py-16 xl:px-16 justify-center text-white mb-20 sm:mt-20"
+      className="max-w-[1440px] md:grid md:grid-cols-2 gap-8 flex flex-col items-start place-self-center p-8 xl:gap-16 sm:py-16 xl:px-16 justify-center text-white mb-20 sm:mt-20"
       id={id}>
-      <Reveal className="flex items-center justify-center">
-        <Image
-          src={"/img/about.webp"}
-          alt="about"
-          width={300}
-          height={300}
-          fetchPriority="high"
-          className="rounded-lg border border-fuchsia-500 shadow-sky-500 shadow-2xl bg-cover bg-center bg-no-repeat"
-        />
-      </Reveal>
+      <HoverTildCard />
       <Reveal>
         <div className="w-full mt-20 md:mt-0 text-lg flex flex-col ">
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
             About Me
           </h1>
-          <p className={`text-xs lg:text-sm ${jetBrains.className}`}>
+          <p className="text-xs lg:text-sm font-jetBrains -tracking-tight leading-relaxed">
             Hello, I am a Software Engineer with a strong focus on Frontend
             development. Able of building a responsive and user-friendly
             interface that prioritizes application performance.
