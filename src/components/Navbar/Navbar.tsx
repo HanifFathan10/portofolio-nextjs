@@ -80,10 +80,10 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-10 bg-transparent bg-opacity-90">
-      <div className="flex flex-wrap items-center justify-between mx-auto px-4 py-2">
+      <div className="flex flex-wrap items-center justify-between mx-auto px-3 py-[6px]">
         <Link
           href={"/"}
-          className="font-semibold text-lg text-white font-jetBrains">
+          className="font-normal tracking-widest text-lg text-white font-jetBrains">
           Haniep Fathan
         </Link>
 
@@ -97,7 +97,7 @@ const Navbar = () => {
             initial={false}
             animate={active ? "open" : "closed"}
             onClick={() => setActive((pv) => !pv)}
-            className="relative block md:hidden h-20 w-20 rounded-full bg-white/0 transition-colors toggle-button">
+            className="relative block md:hidden h-16 w-16 rounded-full toggle-button">
             <motion.span
               variants={VARIANTS.top}
               className="absolute h-1 w-10 bg-white"

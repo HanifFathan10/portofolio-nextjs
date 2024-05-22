@@ -11,7 +11,7 @@ import Image from "next/image";
 
 const HoverTildCard = () => {
   return (
-    <div className="grid w-full place-content-center px-4 py-12 text-slate-900">
+    <div className="grid w-full place-content-center">
       <TiltCard />
     </div>
   );
@@ -65,7 +65,7 @@ const TiltCard = () => {
         transformStyle: "preserve-3d",
         transform,
       }}
-      className="relative h-96 w-72 rounded-xl bg-gradient-to-br from-sky-500 to-sky-90">
+      className="relative h-96 w-72 rounded-xl bg-gradient-to-br from-sky-500 to-sky-90 z-10">
       <Image
         style={{
           transform: "translateZ(75px)",

@@ -2,11 +2,12 @@
 import Image from "next/image";
 import React, { startTransition, useState } from "react";
 import TabButton from "./TabButton";
-import { Reveal } from "../Reveal";
 import ListSkills from "./ListSkills";
 import Marquee from "react-fast-marquee";
 import { jetBrains } from "@/app/layout";
 import HoverTildCard from "../Card/HoverTildCard";
+import WaterDropGrid from "./WaterDropGrid";
+import { Reveal } from "../Reveal";
 
 const AboutSection = ({ id }: { id: string }) => {
   const [tab, setTab] = useState("skill");
@@ -192,41 +193,45 @@ const AboutSection = ({ id }: { id: string }) => {
 
   return (
     <section
-      className="max-w-[1440px] md:grid md:grid-cols-2 gap-8 flex flex-col items-start place-self-center p-8 xl:gap-16 sm:py-16 xl:px-16 justify-center text-white mb-20 sm:mt-20"
+      className="max-w-[1440px] grid grid-cols-1 md:grid-cols-2 gap-28 md:gap-6 place-self-center p-8 xl:gap-16 sm:py-16 xl:px-16 text-white mb-20 sm:mt-20"
       id={id}>
-      <HoverTildCard />
       <Reveal>
-        <div className="w-full mt-20 md:mt-0 text-lg flex flex-col ">
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            About Me
-          </h1>
-          <p className="text-xs lg:text-sm font-jetBrains -tracking-tight leading-relaxed">
-            Hello, I am a Software Engineer with a strong focus on Frontend
-            development. Able of building a responsive and user-friendly
-            interface that prioritizes application performance.
-          </p>
-          <div className="flex justify-start mt-8 gap-4">
-            <TabButton
-              selectTab={() => HandleTabChange("skill")}
-              active={tab === "skill"}>
-              {" "}
-              Skills{" "}
-            </TabButton>
-            <TabButton
-              selectTab={() => HandleTabChange("experience")}
-              active={tab === "experience"}>
-              {" "}
-              Experience{" "}
-            </TabButton>
-            <TabButton
-              selectTab={() => HandleTabChange("education")}
-              active={tab === "education"}>
-              {" "}
-              Education{" "}
-            </TabButton>
+        <HoverTildCard />
+      </Reveal>
+      <Reveal>
+        <WaterDropGrid>
+          <div className="absolute w-full mt-20 md:mt-0 text-lg flex flex-col backdrop-brightness-50 rounded-xl">
+            <h1 className="text-3xl md:text-4xl font- text-white mb-4">
+              About Me
+            </h1>
+            <p className="text-xs lg:text-sm font-jetBrains -tracking-tight leading-relaxed">
+              Hello, I am a Software Engineer with a strong focus on Frontend
+              development. Able of building a responsive and user-friendly
+              interface that prioritizes application performance.
+            </p>
+            <div className="flex justify-start mt-8 gap-4">
+              <TabButton
+                selectTab={() => HandleTabChange("skill")}
+                active={tab === "skill"}>
+                {" "}
+                Skills{" "}
+              </TabButton>
+              <TabButton
+                selectTab={() => HandleTabChange("experience")}
+                active={tab === "experience"}>
+                {" "}
+                Experience{" "}
+              </TabButton>
+              <TabButton
+                selectTab={() => HandleTabChange("education")}
+                active={tab === "education"}>
+                {" "}
+                Education{" "}
+              </TabButton>
+            </div>
+            {TAB_DATA.find((t) => t.id === tab)?.content}
           </div>
-          {TAB_DATA.find((t) => t.id === tab)?.content}
-        </div>
+        </WaterDropGrid>
       </Reveal>
     </section>
   );
