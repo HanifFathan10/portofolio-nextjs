@@ -49,37 +49,6 @@ const ProjectData: Iproject[] = [
   },
   {
     id: 2,
-    title: "Personal Website",
-    description:
-      "My personal website to introduce myself and store several project portfolios that I have developed",
-    image: "/img/project/web-personal.webp",
-    gitUrl: "https://github.com/HanifFathan10/portofolio-nextjs",
-    previewUrl: "https://haniep-portofolio.vercel.app",
-    techStack: [
-      {
-        id: "next",
-        src: "/svg/next.svg",
-        alt: "next",
-      },
-      {
-        id: "typescript",
-        src: "/svg/typescript.svg",
-        alt: "typescript",
-      },
-      {
-        id: "framer",
-        src: "/svg/framer.svg",
-        alt: "framer",
-      },
-      {
-        id: "tailwind",
-        src: "/svg/tailwind.svg",
-        alt: "tailwind",
-      },
-    ],
-  },
-  {
-    id: 3,
     title: "Hazelnote",
     description: "Hazelnote, to do list app to create my to do list every day!",
     image: "/img/project/hazelnote.png",
@@ -95,6 +64,42 @@ const ProjectData: Iproject[] = [
         id: "react",
         src: "/svg/react.svg",
         alt: "react",
+      },
+      {
+        id: "tailwind",
+        src: "/svg/tailwind.svg",
+        alt: "tailwind",
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "GadgetIndo",
+    description:
+      "GadgetIndo is a website project designed to help users find information about the latest gadgets. During my internship, I worked on the frontend development, ensuring an attractive and functional user interface.",
+    image: "/img/project/GI.png",
+    previewUrl: "#",
+    gitUrl: "https://github.com/HanifFathan10/Gadget-Indonesia",
+    techStack: [
+      {
+        id: "html",
+        src: "/svg/html.svg",
+        alt: "html",
+      },
+      {
+        id: "css",
+        src: "/svg/css.svg",
+        alt: "css",
+      },
+      {
+        id: "javascript",
+        src: "/svg/javascript.svg",
+        alt: "javascript",
+      },
+      {
+        id: "tailwind",
+        src: "/svg/tailwind.svg",
+        alt: "tailwind",
       },
     ],
   },
@@ -116,10 +121,10 @@ const ProjectsSection = ({ id }: { id: string }) => {
         ref={ref}
         className="flex flex-col justify-center items-center"
         id={id}>
-        <h2 className="text-center text-3xl md:text-4xl font-bold text-white my-4 ">
+        <h2 className="text-center text-3xl md:text-4xl font-medium text-white my-4">
           My Project
         </h2>
-        <ul className="flex flex-col lg:grid lg:grid-cols-2 mt-10 gap-5">
+        <ul className="w-full grid md:grid-cols-2 place-content-center max-w-5xl px-6 mt-10 gap-5">
           {ProjectData.map((project: Iproject, index) => {
             return (
               <motion.li

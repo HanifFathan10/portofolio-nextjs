@@ -67,7 +67,7 @@ const HeroSection = () => {
           <p className="text-[#eaeaea] text-xs text-start sm:text-sm md:text-base mb-6 font-jetBrains">
             Hi there👋, I am a frontend developer who is very interested in
             technology related to web development, always improving my skills
-            and enjoying this role.
+            and enjoying in this role.
           </p>
           <div className="mb-14 lg:mb-0">
             <button

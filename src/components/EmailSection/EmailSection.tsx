@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Reveal } from "../Reveal";
 import Image from "next/image";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const EmailSection = ({ id }: { id: string }) => {
   const form = useRef<HTMLFormElement | null>(null);
@@ -12,25 +14,28 @@ const EmailSection = ({ id }: { id: string }) => {
 
   const sendEmail = async (e?: React.FormEvent<HTMLFormElement>) => {
     if (e) e.preventDefault();
-
     if (!form.current) {
-      console.error("Form reference is not set");
       return;
     }
 
     const email = form.current.email.value;
-
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-      setValidate("Please enter a valid email address");
+      toast("Please enter a valid email address", {
+        role: "error",
+        type: "error",
+        theme: "dark",
+      });
       return;
     }
-
     if (!form.current) {
-      setValidate("Please fill in all fields");
+      toast("Please fill in all fields", {
+        role: "error",
+        type: "error",
+        theme: "dark",
+      });
       return;
     }
-
     if (email)
       try {
         await emailjs.sendForm(
@@ -39,13 +44,23 @@ const EmailSection = ({ id }: { id: string }) => {
           form.current,
           "iT91ZsthnS02_yFOG"
         );
+
+        toast("Send Message Success!!", {
+          role: "success",
+          type: "success",
+          theme: "dark",
+        });
+
+        // kosongkan form setelah mengirim pesan
+        form.current.reset();
       } catch (error) {
         console.log(error);
+        toast("Send Message Failed!!", {
+          role: "error",
+          type: "error",
+          theme: "dark",
+        });
       }
-  };
-
-  const handleButtonClick = () => {
-    sendEmail();
   };
 
   useEffect(() => {
@@ -145,38 +160,21 @@ const EmailSection = ({ id }: { id: string }) => {
             <textarea
               name="message"
               id="message"
+              required
               className="bg-secondary border border-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full px-4 py-2"
               placeholder="Let's talk about..."
               cols={5}
               rows={5}
-              required
             />
           </div>
           <button
             type="submit"
-            onClick={handleButtonClick}
             className="bg-sky-800 hover:bg-cyan-300 text-white hover:text-[#212121] font-medium py-2.5 px-5 transition-all rounded-lg w-full focus:ring-2 focus:ring-slate-500">
             Send Message
           </button>
-          <div className="">
-            {isMessageSent && (
-              <div className="flex justify-center">
-                <p className="text-md text-center lg:text-lg font-semibold text-[#ADB7BE]">
-                  Thank you for joining, sending message success!!
-                </p>
-              </div>
-            )}
-
-            {validate && (
-              <div className="flex justify-center">
-                <p className="text-md text-center lg:text-lg font-semibold text-[#ADB7BE]">
-                  {validate}
-                </p>
-              </div>
-            )}
-          </div>
         </form>
       </Reveal>
+      <ToastContainer />
     </section>
   );
 };

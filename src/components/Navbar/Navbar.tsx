@@ -132,7 +132,17 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      {active ? <MenuOverlay Links={NavLinks} /> : null}
+      {active ? (
+        <MenuOverlay
+          Links={NavLinks}
+          className="ml-0 transition-all duration-300 ease-in-out"
+        />
+      ) : (
+        <MenuOverlay
+          Links={NavLinks}
+          className="ml-96 transition-all duration-300 ease-in-out"
+        />
+      )}
     </nav>
   );
 };

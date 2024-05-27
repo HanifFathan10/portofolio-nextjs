@@ -201,7 +201,7 @@ const AboutSection = ({ id }: { id: string }) => {
       <Reveal>
         <WaterDropGrid>
           <div className="absolute w-full mt-20 md:mt-0 text-lg flex flex-col backdrop-brightness-50 rounded-xl">
-            <h1 className="text-3xl md:text-4xl font- text-white mb-4">
+            <h1 className="text-3xl md:text-4xl font-medium text-white mb-4">
               About Me
             </h1>
             <p className="text-xs lg:text-sm font-jetBrains -tracking-tight leading-relaxed">
