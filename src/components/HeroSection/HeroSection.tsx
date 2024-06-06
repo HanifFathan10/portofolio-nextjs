@@ -34,7 +34,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="w-full min-h-screen flex flex-col justify-center items-center relative overflow-hidden">
+    <section className="w-full min-h-screen flex flex-col justify-center items-center relative overflow-hidden shadow-2xl shadow-cyan-500/50 drop-shadow-md">
       <FuzzyOverlay />
       <div className="max-md:h-screen flex max-md:flex-col items-center justify-center gap-2 md:gap-16 px-8 lg:px-16">
         <motion.div
@@ -42,8 +42,8 @@ const HeroSection = () => {
           animate={{ x: 0, y: 0 }}
           transition={{ duration: 2 }}
           className="col-span-4 place-self-center text-left">
-          <h1 className="text-white mb-4 text-4xl font-extrabold">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-800 via-sky-400 to-cyan-100">
+          <h1 className="text-white mb-4 text-4xl">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-800 via-sky-400 to-cyan-100 font-bold">
               Hello, I'm
             </span>
             <br />
@@ -61,6 +61,7 @@ const HeroSection = () => {
               wrapper="strong"
               speed={40}
               repeat={Infinity}
+              preRenderFirstString={true}
               className={`${jetBrains.className} text-2xl lg:text-3xl`}
             />
           </h1>

@@ -17,6 +17,18 @@ export async function MetaHead({
     <head>
       <title>{title + " | " + defaultTitle}</title>
       <meta name="title" content={title + " | " + defaultTitle} />
+      <meta name="author" content="Haniep fathan riziq" />
+
+      {/* 
+         Configure the behavior of the web crawler in specific pages.
+         Specify the width of the viewport for different devices.
+         initial-scale=1.0 : 1:1 pixel ratio.
+       */}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      {/* Mengontrol perilaku crawler mesin pencari di halaman tertentu. */}
+      <meta name="robots" content="index, follow" />
+
       <meta name="description" content={description} />
       <link rel="shortcut icon" href="/img/hanif.webp" />
 
@@ -31,6 +43,9 @@ export async function MetaHead({
       <meta property="twitter:title" content={title + " | " + defaultTitle} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={imgUrl} />
+
+      {/* Mencegah masalah konten duplikat dengan menunjukkan URL kanonik (utama) dari halaman. */}
+      <link rel="canonical" href="https://haniep-fathan.vercel.app" />
     </head>
   );
 }

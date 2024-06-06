@@ -8,9 +8,12 @@ import { jetBrains } from "@/app/layout";
 import HoverTildCard from "../Card/HoverTildCard";
 import WaterDropGrid from "./WaterDropGrid";
 import { Reveal } from "../Reveal";
+import Link from "next/link";
+import { SpringModal } from "./SpringModal";
 
 const AboutSection = ({ id }: { id: string }) => {
   const [tab, setTab] = useState("skill");
+  const [isOpen, setIsOpen] = useState(false);
 
   const HandleTabChange = (id: string) => {
     startTransition(() => {
@@ -117,22 +120,26 @@ const AboutSection = ({ id }: { id: string }) => {
       id: "skill",
       content: (
         <React.Fragment>
-          <h1 className="font-bold my-2">My Coding Skills.</h1>
+          <h1 className="font-extralight my-2">My coding skills.</h1>
           <div
             className={`grid grid-rows-2 place-content-center space-y-1 ${jetBrains.className}`}>
-            <Marquee autoFill={true} speed={70} className=" py-2">
-              {ListData.splice(0, 7).map((result, i) => (
-                <ListSkills src={result.svg} title={result.skill} key={i} />
-              ))}
+            <Marquee autoFill={true} speed={100} className=" py-2">
+              {ListData.slice(0, 9).map((result, i) => {
+                return (
+                  <ListSkills src={result.svg} title={result.skill} key={i} />
+                );
+              })}
             </Marquee>
             <Marquee
               autoFill={true}
-              speed={70}
+              speed={100}
               className=" py-2"
               direction="right">
-              {ListData.splice(8, 15).map((result, i) => (
-                <ListSkills src={result.svg} title={result.skill} key={i} />
-              ))}
+              {ListData.slice(9, 18).map((result, i) => {
+                return (
+                  <ListSkills src={result.svg} title={result.skill} key={i} />
+                );
+              })}
             </Marquee>
           </div>
         </React.Fragment>
@@ -152,9 +159,12 @@ const AboutSection = ({ id }: { id: string }) => {
               fetchPriority="high"
               className="rounded-lg w-auto h-auto"
             />
-            <h5 className={`text-base ${jetBrains.className}`}>
+            <Link
+              href="https://sma.bppi.sch.id/"
+              target="_blank"
+              className={`text-base hover:underline ${jetBrains.className}`}>
               SMA BPPI BALEENDAH
-            </h5>
+            </Link>
           </li>
         </ul>
       ),
@@ -170,20 +180,27 @@ const AboutSection = ({ id }: { id: string }) => {
               <h5 className="font-bold my-2">Frontend Developer</h5>
               <p className="text-xs">
                 Internship at{" "}
-                <span className={`text-xs font-bold ${jetBrains.className}`}>
+                <Link
+                  target="_blank"
+                  href={"https://www.linkedin.com/company/kawan-kerja/"}
+                  className={`text-xs font-bold hover:underline ${jetBrains.className}`}>
                   Kawan Kerja
-                </span>
+                </Link>
               </p>
               <p className={`text-xs font-extralight ${jetBrains.className}`}>
                 December 2023 - March 2024
               </p>
-              <img
-                src="/img/sertifikat-kawankerja.jpg"
-                alt="kawankerja"
-                width={20}
-                height={20}
-                className="w-52 h-32 object-contain"
-              />
+              <button onClick={() => setIsOpen(true)}>
+                <img
+                  src="/img/sertifikat-kawankerja.jpg"
+                  alt="kawankerja"
+                  width={20}
+                  height={20}
+                  fetchPriority="high"
+                  loading="lazy"
+                  className="w-52 h-32 object-contain bg-center bg-cover rounded-md"
+                />
+              </button>
             </div>
           </li>
         </ul>
@@ -233,6 +250,7 @@ const AboutSection = ({ id }: { id: string }) => {
           </div>
         </WaterDropGrid>
       </Reveal>
+      <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </section>
   );
 };

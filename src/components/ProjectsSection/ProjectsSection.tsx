@@ -45,6 +45,11 @@ const ProjectData: Iproject[] = [
         src: "/svg/chakraUI.svg",
         alt: "chalraUI",
       },
+      {
+        id: "zustand",
+        src: "/svg/zustand.svg",
+        alt: "zustand",
+      },
     ],
   },
   {

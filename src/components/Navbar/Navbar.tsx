@@ -6,6 +6,7 @@ import React, { MouseEvent, useEffect, useState } from "react";
 import MenuOverlay from "./MenuOverlay";
 import NavLink from "./NavLink";
 import { MotionConfig } from "framer-motion";
+import { SlideTabs } from "./SlideTabs";
 
 export interface Ilinks {
   title: string;
@@ -122,15 +123,7 @@ const Navbar = () => {
         </MotionConfig>
 
         {/* Menu */}
-        <div className="menu hidden md:block md:w-auto" id="navbar">
-          <ul className="flex md:p-0 md:flex-row md:space-x-8 mt-0">
-            {NavLinks.map((link: Ilinks, index: number) => {
-              return (
-                <NavLink key={index} href={link.href} title={link.title} />
-              );
-            })}
-          </ul>
-        </div>
+        <SlideTabs NavLinks={NavLinks} />
       </div>
       {active ? (
         <MenuOverlay
@@ -140,7 +133,7 @@ const Navbar = () => {
       ) : (
         <MenuOverlay
           Links={NavLinks}
-          className="ml-96 transition-all duration-300 ease-in-out"
+          className="ml-[610px] transition-all duration-500 ease-in-out"
         />
       )}
     </nav>
