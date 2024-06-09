@@ -71,11 +71,12 @@ const TiltCard = () => {
           transform: "translateZ(75px)",
           transformStyle: "preserve-3d",
         }}
-        className="absolute inset-4 grid place-content-center rounded-xl shadow-lg bg-cover bg-center object-contain"
-        src="/img/hanif.jpg"
+        className="absolute w-auto h-auto aspect-auto inset-4 grid place-content-center rounded-xl shadow-lg bg-cover bg-center object-contain"
+        src="/img/hanif.webp"
         alt="hanif"
         width={288}
-        height={384}
+        height={288}
+        loading="lazy"
         fetchPriority="high"
       />
     </motion.div>

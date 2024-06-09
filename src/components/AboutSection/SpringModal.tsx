@@ -25,7 +25,7 @@ export const SpringModal = ({
             className="bg-gradient-to-br from-cyan-500 to-blue-500 text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative overflow-hidden">
             <div className="relative z-10 flex justify-center items-center">
               <img
-                src="/img/sertifikat-kawankerja.jpg"
+                src="/img/sertifikat-kawankerja.webp"
                 alt="kawankerja"
                 width={20}
                 height={20}

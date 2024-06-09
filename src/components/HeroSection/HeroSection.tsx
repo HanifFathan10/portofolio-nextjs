@@ -4,10 +4,6 @@ import { motion } from "framer-motion";
 import { jetBrains } from "@/app/layout";
 
 const HeroSection = () => {
-  const handleContact = () => {
-    window.location.href = "#contact";
-  };
-
   const FuzzyOverlay = () => {
     return (
       <motion.div
@@ -17,7 +13,7 @@ const HeroSection = () => {
         }}
         transition={{
           repeat: Infinity,
-          duration: 0.2,
+          duration: 0.3,
           ease: "linear",
           repeatType: "mirror",
         }}
@@ -72,7 +68,7 @@ const HeroSection = () => {
           </p>
           <div className="mb-14 lg:mb-0">
             <button
-              onClick={handleContact}
+              onClick={() => (window.location.href = "#contact")}
               className="rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
               Contact Me
             </button>

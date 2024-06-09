@@ -192,7 +192,7 @@ const AboutSection = ({ id }: { id: string }) => {
               </p>
               <button onClick={() => setIsOpen(true)}>
                 <img
-                  src="/img/sertifikat-kawankerja.jpg"
+                  src="/img/sertifikat-kawankerja.webp"
                   alt="kawankerja"
                   width={20}
                   height={20}

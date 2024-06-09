@@ -67,7 +67,7 @@ const DotGrid = () => {
       className="max-sm:relative grid w-fit">
       <h1 className="sm:hidden absolute flex items-center text-xs top-6 left-72 font-jetBrains z-[999999]">
         tap
-        <img src="/img/tap.png" alt="tap" className="w-5 h-5" />
+        <img src="/img/tap.webp" loading="lazy" alt="tap" className="w-5 h-5" />
       </h1>
       {dots}
     </div>

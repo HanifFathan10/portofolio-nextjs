@@ -4,7 +4,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import React, { MouseEvent, useEffect, useState } from "react";
 import MenuOverlay from "./MenuOverlay";
-import NavLink from "./NavLink";
 import { MotionConfig } from "framer-motion";
 import { SlideTabs } from "./SlideTabs";
 
@@ -133,7 +132,7 @@ const Navbar = () => {
       ) : (
         <MenuOverlay
           Links={NavLinks}
-          className="ml-[610px] transition-all duration-500 ease-in-out"
+          className="ml-[275px] transition-all duration-500 ease-in-out"
         />
       )}
     </nav>
