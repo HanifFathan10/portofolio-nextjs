@@ -120,7 +120,7 @@ const AboutSection = ({ id }: { id: string }) => {
       id: "skill",
       content: (
         <React.Fragment>
-          <h1 className="font-extralight my-2">My coding skills.</h1>
+          <h1 className="font-extralight my-2">What do I use</h1>
           <div
             className={`grid grid-rows-2 place-content-center space-y-1 ${jetBrains.className}`}>
             <Marquee autoFill={true} speed={100} className=" py-2">
@@ -217,7 +217,7 @@ const AboutSection = ({ id }: { id: string }) => {
       </Reveal>
       <Reveal>
         <WaterDropGrid>
-          <div className="absolute w-full mt-20 md:mt-0 text-lg flex flex-col backdrop-brightness-50 rounded-xl">
+          <div className="absolute w-full h-[400px] md:h-[360px] mt-20 md:mt-0 text-lg flex flex-col backdrop-brightness-50 rounded-xl">
             <h1 className="text-3xl md:text-4xl font-medium text-white mb-4">
               About Me
             </h1>

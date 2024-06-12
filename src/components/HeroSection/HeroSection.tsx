@@ -13,7 +13,7 @@ const HeroSection = () => {
         }}
         transition={{
           repeat: Infinity,
-          duration: 0.3,
+          duration: 0.2,
           ease: "linear",
           repeatType: "mirror",
         }}
@@ -30,7 +30,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="w-full min-h-screen flex flex-col justify-center items-center relative overflow-hidden shadow-2xl shadow-cyan-500/50 drop-shadow-md">
+    <section className="w-full min-h-screen flex flex-col justify-center items-center relative overflow-hidden shadow-xl shadow-cyan-500/50">
       <FuzzyOverlay />
       <div className="max-md:h-screen flex max-md:flex-col items-center justify-center gap-2 md:gap-16 px-8 lg:px-16">
         <motion.div

@@ -11,7 +11,7 @@ export async function MetaHead({
   defaultTitle = "Haniep Fathan R",
   description,
   Url = "https://haniep-portofolio.vercel.app",
-  imgUrl = "/img/portogw.png",
+  imgUrl = "/img/code.webp",
 }: Props) {
   return (
     <head>
@@ -30,7 +30,7 @@ export async function MetaHead({
       <meta name="robots" content="index, follow" />
 
       <meta name="description" content={description} />
-      <link rel="shortcut icon" href="/img/hanif.webp" />
+      <link rel="shortcut icon" href="/img/code.webp" />
 
       <meta property="og:type" content="website" />
       <meta property="og:url" content={Url} />

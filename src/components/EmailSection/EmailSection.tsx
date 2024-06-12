@@ -10,7 +10,6 @@ import "react-toastify/dist/ReactToastify.css";
 const EmailSection = ({ id }: { id: string }) => {
   const form = useRef<HTMLFormElement | null>(null);
   const [isMessageSent, setIsMessageSent] = useState<boolean>(false);
-  const [validate, setValidate] = useState<string>("");
 
   const sendEmail = async (e?: React.FormEvent<HTMLFormElement>) => {
     if (e) e.preventDefault();

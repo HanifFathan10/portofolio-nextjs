@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import React, { MouseEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import MenuOverlay from "./MenuOverlay";
 import { MotionConfig } from "framer-motion";
 import { SlideTabs } from "./SlideTabs";
@@ -10,6 +10,7 @@ import { SlideTabs } from "./SlideTabs";
 export interface Ilinks {
   title: string;
   href: string;
+  active?: boolean;
 }
 
 const NavLinks: Ilinks[] = [
