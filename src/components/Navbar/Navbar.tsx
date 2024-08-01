@@ -80,7 +80,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 bg-transparent bg-opacity-90">
+    <nav className="fixed top-0 left-0 right-0 z-10 bg-transparent bg-opacity-90 max-w-7xl mx-auto">
       <div className="flex flex-wrap items-center justify-between mx-auto px-3 py-[6px]">
         <Link
           href={"/"}
@@ -133,7 +133,7 @@ const Navbar = () => {
       ) : (
         <MenuOverlay
           Links={NavLinks}
-          className="ml-[275px] transition-all duration-500 ease-in-out"
+          className="ml-[600px] transition-all duration-500 ease-in-out"
         />
       )}
     </nav>

@@ -8,6 +8,7 @@ import {
   useSpring,
 } from "framer-motion";
 import Image from "next/image";
+import { Reveal } from "../Reveal";
 
 const HoverTildCard = () => {
   return (
@@ -57,29 +58,31 @@ const TiltCard = () => {
   };
 
   return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        transformStyle: "preserve-3d",
-        transform,
-      }}
-      className="relative h-96 w-72 rounded-xl bg-gradient-to-br from-sky-500 to-sky-90 z-10">
-      <Image
+    <Reveal>
+      <motion.div
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
         style={{
-          transform: "translateZ(75px)",
           transformStyle: "preserve-3d",
+          transform,
         }}
-        className="absolute w-auto h-auto aspect-auto inset-4 grid place-content-center rounded-xl shadow-lg bg-cover bg-center object-contain"
-        src="/img/hanif.webp"
-        alt="hanif"
-        width={288}
-        height={288}
-        loading="lazy"
-        fetchPriority="high"
-      />
-    </motion.div>
+        className="relative w-60 h-72 md:h-96 md:w-72 rounded-xl bg-gradient-to-br from-sky-500 to-sky-90">
+        <Image
+          className="absolute rounded-xl w-60 h-72 md:h-96 md:w-72 inset-4"
+          src="/img/hanif.webp"
+          alt="hanif"
+          priority
+          width={384}
+          height={288}
+          style={{
+            objectFit: "cover",
+            transform: "translateZ(75px)",
+            transformStyle: "preserve-3d",
+          }}
+        />
+      </motion.div>
+    </Reveal>
   );
 };
 

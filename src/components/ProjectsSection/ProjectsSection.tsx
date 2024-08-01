@@ -1,8 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import ProjectCart from "./ProjectCart";
-import { motion, useInView } from "framer-motion";
-import { Reveal } from "../Reveal";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import { Iproject } from "@/libs/interface";
 
 const ProjectData: Iproject[] = [
@@ -114,32 +113,51 @@ const ProjectsSection = ({ id }: { id: string }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, { once: true });
 
-  const cartVariants = {
-    initials: { y: 50, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-    exit: { y: 50, opacity: 0 },
-    initial: { y: 0, opacity: 1 },
+  const container = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        delayChildren: 0.9,
+        staggerChildren: 0.6,
+        ease: "easeOut",
+      },
+    },
   };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <Reveal>
-      <section
-        ref={ref}
-        className="flex flex-col justify-center items-center"
-        id={id}>
-        <h2 className="text-center text-3xl md:text-4xl font-medium text-white my-4">
-          My Project
-        </h2>
-        <ul className="w-full grid md:grid-cols-2 place-content-center max-w-5xl px-6 mt-10 gap-5">
-          {ProjectData.map((project: Iproject, index) => {
-            return (
-              <motion.li
-                variants={cartVariants}
-                initial="initial"
-                animate={isInView ? "animate" : "initial"}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                key={index}>
+    <section
+      ref={ref}
+      className="flex flex-col justify-center items-center"
+      id={id}>
+      <h2 className="text-center text-3xl md:text-4xl font-medium text-white my-4">
+        My Project
+      </h2>
+      <AnimatePresence>
+        {isInView && (
+          <motion.ul
+            className="w-full grid md:grid-cols-2 place-content-center max-w-5xl px-6 mt-10 gap-5"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+            exit="hidden">
+            {ProjectData.map((project: Iproject, i) => (
+              <motion.li variants={item} key={i}>
                 <ProjectCart
-                  key={project.id}
                   title={project.title}
                   description={project.description}
                   imgUrl={project.image}
@@ -148,11 +166,11 @@ const ProjectsSection = ({ id }: { id: string }) => {
                   techStack={project.techStack}
                 />
               </motion.li>
-            );
-          })}
-        </ul>
-      </section>
-    </Reveal>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </section>
   );
 };
 

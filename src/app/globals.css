@@ -9,3 +9,31 @@ body {
   padding: env(safe-area-inset-top) env(safe-area-inset-right)
     env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
+
+*::-webkit-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #081225;
+  display: block;
+  width: 4px;
+  height: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #18191e;
+}
+*::-webkit-scrollbar-corner {
+  background-color: #18191e;
+}
+@supports (-moz-appearance: none) {
+  * {
+    scrollbar-width: thin;
+  }
+}
+*::-webkit-scrollbar {
+  display: block;
+  width: 11px;
+  height: 11px;
+}

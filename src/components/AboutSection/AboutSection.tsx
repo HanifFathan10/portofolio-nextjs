@@ -4,10 +4,8 @@ import React, { startTransition, useState } from "react";
 import TabButton from "./TabButton";
 import ListSkills from "./ListSkills";
 import Marquee from "react-fast-marquee";
-import { jetBrains } from "@/app/layout";
 import HoverTildCard from "../Card/HoverTildCard";
 import WaterDropGrid from "./WaterDropGrid";
-import { Reveal } from "../Reveal";
 import Link from "next/link";
 import { SpringModal } from "./SpringModal";
 
@@ -120,9 +118,8 @@ const AboutSection = ({ id }: { id: string }) => {
       id: "skill",
       content: (
         <React.Fragment>
-          <h1 className="font-extralight my-2">What do I use</h1>
-          <div
-            className={`grid grid-rows-2 place-content-center space-y-1 ${jetBrains.className}`}>
+          <h1 className="font-extralight text-xs my-2">What do I use?</h1>
+          <div className="grid grid-rows-2 place-content-center space-y-1 jetBrains">
             <Marquee autoFill={true} speed={100} className=" py-2">
               {ListData.slice(0, 9).map((result, i) => {
                 return (
@@ -162,7 +159,7 @@ const AboutSection = ({ id }: { id: string }) => {
             <Link
               href="https://sma.bppi.sch.id/"
               target="_blank"
-              className={`text-base hover:underline ${jetBrains.className}`}>
+              className="text-base hover:underline font-jetBrains">
               SMA BPPI BALEENDAH
             </Link>
           </li>
@@ -183,11 +180,11 @@ const AboutSection = ({ id }: { id: string }) => {
                 <Link
                   target="_blank"
                   href={"https://www.linkedin.com/company/kawan-kerja/"}
-                  className={`text-xs font-bold hover:underline ${jetBrains.className}`}>
+                  className="text-xs font-bold hover:underline jetBrains">
                   Kawan Kerja
                 </Link>
               </p>
-              <p className={`text-xs font-extralight ${jetBrains.className}`}>
+              <p className="text-xs font-extralight jetBrains">
                 December 2023 - March 2024
               </p>
               <button onClick={() => setIsOpen(true)}>
@@ -212,44 +209,40 @@ const AboutSection = ({ id }: { id: string }) => {
     <section
       className="max-w-[1440px] grid grid-cols-1 md:grid-cols-2 gap-28 md:gap-6 place-self-center p-8 xl:gap-16 sm:py-16 xl:px-16 text-white mb-20 sm:mt-20"
       id={id}>
-      <Reveal>
-        <HoverTildCard />
-      </Reveal>
-      <Reveal>
-        <WaterDropGrid>
-          <div className="absolute w-full h-[400px] md:h-[360px] mt-20 md:mt-0 text-lg flex flex-col backdrop-brightness-50 rounded-xl">
-            <h1 className="text-3xl md:text-4xl font-medium text-white mb-4">
-              About Me
-            </h1>
-            <p className="text-xs lg:text-sm font-jetBrains -tracking-tight leading-relaxed">
-              Hello, I am a Software Engineer with a strong focus on Frontend
-              development. Able of building a responsive and user-friendly
-              interface that prioritizes application performance.
-            </p>
-            <div className="flex justify-start mt-8 gap-4">
-              <TabButton
-                selectTab={() => HandleTabChange("skill")}
-                active={tab === "skill"}>
-                {" "}
-                Skills{" "}
-              </TabButton>
-              <TabButton
-                selectTab={() => HandleTabChange("experience")}
-                active={tab === "experience"}>
-                {" "}
-                Experience{" "}
-              </TabButton>
-              <TabButton
-                selectTab={() => HandleTabChange("education")}
-                active={tab === "education"}>
-                {" "}
-                Education{" "}
-              </TabButton>
-            </div>
-            {TAB_DATA.find((t) => t.id === tab)?.content}
+      <HoverTildCard />
+      <WaterDropGrid>
+        <div className="absolute w-full h-[400px] md:h-[360px] mt-20 md:mt-0 text-lg flex flex-col backdrop-brightness-50 rounded-xl">
+          <h1 className="text-3xl md:text-4xl font-medium text-white mb-4">
+            About Me
+          </h1>
+          <p className="text-xs lg:text-sm font-jetBrains -tracking-tight leading-relaxed">
+            Hello, I am a Software Engineer with a strong focus on Frontend
+            development. Able of building a responsive and user-friendly
+            interface that prioritizes application performance.
+          </p>
+          <div className="flex justify-start mt-8 gap-4">
+            <TabButton
+              selectTab={() => HandleTabChange("skill")}
+              active={tab === "skill"}>
+              {" "}
+              Skills{" "}
+            </TabButton>
+            <TabButton
+              selectTab={() => HandleTabChange("experience")}
+              active={tab === "experience"}>
+              {" "}
+              Experience{" "}
+            </TabButton>
+            <TabButton
+              selectTab={() => HandleTabChange("education")}
+              active={tab === "education"}>
+              {" "}
+              Education{" "}
+            </TabButton>
           </div>
-        </WaterDropGrid>
-      </Reveal>
+          {TAB_DATA.find((t) => t.id === tab)?.content}
+        </div>
+      </WaterDropGrid>
       <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </section>
   );

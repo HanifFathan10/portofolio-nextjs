@@ -5,29 +5,30 @@ import React, { useEffect, useRef } from "react";
 
 export const Reveal = ({ children, className }: Ireveal) => {
   const ref = useRef<HTMLDivElement | null>(null);
-  const IsInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
 
   useEffect(() => {
-    IsInView && mainControls.start("visible");
-  }, [IsInView]);
-  
+    if (isInView) {
+      mainControls.start("visible");
+    }
+  }, [isInView, mainControls]);
+
   return (
     <main ref={ref} className="w-full">
       <motion.div
         className={className}
         variants={{
-          hidden: { opacity: 0, y: 380 },
-          visible: { opacity: 1, y: 50 },
-          exit: { opacity: 0, y: 200 },
+          hidden: { opacity: 0, y: 80 },
+          visible: { opacity: 1, y: 0 },
+          exit: { opacity: 0, y: 20 },
         }}
         initial="hidden"
         animate={mainControls}
         exit="exit"
         transition={{
-          duration: 1.5,
-          delay: 0.8,
-          ease: [0.42, 0, 0.58, 1],
+          duration: 0.9,
+          ease: "easeInOut",
         }}>
         {children}
       </motion.div>

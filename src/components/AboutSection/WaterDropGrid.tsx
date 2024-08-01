@@ -1,11 +1,14 @@
 import anime from "animejs";
+import { Reveal } from "../Reveal";
 
 const WaterDropGrid = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="relative w-full flex flex-col justify-center">
-      <DotGrid />
-      {children}
-    </div>
+    <Reveal>
+      <div className="relative w-full flex flex-col justify-center">
+        <DotGrid />
+        {children}
+      </div>
+    </Reveal>
   );
 };
 
@@ -65,7 +68,7 @@ const DotGrid = () => {
       onClick={handleDotClick}
       style={{ gridTemplateColumns: `repeat(${GRID_WIDTH}, 1fr)` }}
       className="max-sm:relative grid w-fit">
-      <h1 className="sm:hidden absolute flex items-center text-xs top-6 left-72 font-jetBrains z-[999999]">
+      <h1 className="sm:hidden absolute flex items-center text-xs top-6 left-72 font-jetBrains">
         tap
         <img src="/img/tap.webp" loading="lazy" alt="tap" className="w-5 h-5" />
       </h1>

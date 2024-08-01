@@ -88,6 +88,10 @@ const EmailSection = ({ id }: { id: string }) => {
                 alt="github"
                 width={30}
                 height={30}
+                style={{
+                  width: "30px",
+                  height: "30px",
+                }}
               />
             </Link>
             <Link href={"https://www.instagram.com/haniffthn__"}>
@@ -96,6 +100,10 @@ const EmailSection = ({ id }: { id: string }) => {
                 alt="github"
                 width={30}
                 height={30}
+                style={{
+                  width: "30px",
+                  height: "30px",
+                }}
               />
             </Link>
             <Link href={"https://www.linkedin.com/in/haniep-fathan"}>
@@ -104,6 +112,10 @@ const EmailSection = ({ id }: { id: string }) => {
                 alt="github"
                 width={30}
                 height={30}
+                style={{
+                  width: "30px",
+                  height: "30px",
+                }}
               />
             </Link>
             <Link href={"https://www.github.com/HanifFathan10"}>
@@ -112,6 +124,10 @@ const EmailSection = ({ id }: { id: string }) => {
                 alt="github"
                 width={30}
                 height={30}
+                style={{
+                  width: "30px",
+                  height: "30px",
+                }}
               />
             </Link>
           </div>
@@ -121,7 +137,7 @@ const EmailSection = ({ id }: { id: string }) => {
         <form
           ref={form}
           onSubmit={sendEmail}
-          className="flex flex-col gap-4 z-[100]">
+          className="flex flex-col gap-4 z-10">
           <div>
             <label
               htmlFor="email"
