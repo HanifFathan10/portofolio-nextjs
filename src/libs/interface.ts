@@ -16,8 +16,3 @@ export interface TypeAnimationProps {
   cursor?: boolean;
   className?: string;
 }
-
-export interface Ireveal {
-  children?: JSX.Element;
-  className?: string;
-}

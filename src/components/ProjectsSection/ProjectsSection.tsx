@@ -1,15 +1,14 @@
 "use client";
 import React, { useRef } from "react";
 import ProjectCart from "./ProjectCart";
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Iproject } from "@/libs/interface";
 
 const ProjectData: Iproject[] = [
   {
     id: 1,
     title: "CiniKupi",
-    description:
-      "The coffee shop website that I developed focuses on menu information and details of each of our menus. You can order it online on our website.",
+    description: "The coffee shop website that I developed focuses on menu information and details of each of our menus. You can order it online on our website.",
     image: "/img/project/cinikupiii.webp",
     gitUrl: "https://github.com/HanifFathan10/CiniKupiReactJs",
     previewUrl: "https://cini-kupi.vercel.app",
@@ -79,8 +78,7 @@ const ProjectData: Iproject[] = [
   {
     id: 3,
     title: "GadgetIndo",
-    description:
-      "GadgetIndo is a website project designed to help users find information about the latest gadgets. During my internship, I worked on the frontend development, ensuring an attractive and functional user interface.",
+    description: "GadgetIndo is a website project designed to help users find information about the latest gadgets. During my internship, I worked on the frontend development, ensuring an attractive and functional user interface.",
     image: "/img/project/GI.png",
     previewUrl: "#",
     gitUrl: "https://github.com/HanifFathan10/Gadget-Indonesia",
@@ -127,49 +125,20 @@ const ProjectsSection = ({ id }: { id: string }) => {
     },
   };
 
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
+  const delays = [300, 500, 300];
 
   return (
-    <section
-      ref={ref}
-      className="flex flex-col justify-center items-center"
-      id={id}>
-      <h2 className="text-center text-3xl md:text-4xl font-medium text-white my-4">
-        My Project
-      </h2>
-      <AnimatePresence>
-        {isInView && (
-          <motion.ul
-            className="w-full grid md:grid-cols-2 place-content-center max-w-5xl px-6 mt-10 gap-5"
-            variants={container}
-            initial="hidden"
-            animate="visible"
-            exit="hidden">
-            {ProjectData.map((project: Iproject, i) => (
-              <motion.li variants={item} key={i}>
-                <ProjectCart
-                  title={project.title}
-                  description={project.description}
-                  imgUrl={project.image}
-                  gitUrl={project.gitUrl}
-                  previewUrl={project.previewUrl}
-                  techStack={project.techStack}
-                />
-              </motion.li>
-            ))}
-          </motion.ul>
-        )}
-      </AnimatePresence>
+    <section ref={ref} className="flex flex-col justify-center items-center" id={id} data-aos="zoom-in-out">
+      <h2 className="text-center text-3xl md:text-4xl font-medium text-white my-4">My Project</h2>
+      <ul className="w-full grid md:grid-cols-2 place-content-center max-w-5xl px-6 mt-10 gap-5">
+        {ProjectData.map((project: Iproject, index) => {
+          return (
+            <motion.li variants={container} initial="initial" animate={isInView ? "animate" : "initial"} transition={{ duration: 0.3, delay: index * 0.1 }} key={index}>
+              <ProjectCart key={project.id} title={project.title} description={project.description} imgUrl={project.image} gitUrl={project.gitUrl} previewUrl={project.previewUrl} techStack={project.techStack} aosDelay={delays[index]} />
+            </motion.li>
+          );
+        })}
+      </ul>
     </section>
   );
 };

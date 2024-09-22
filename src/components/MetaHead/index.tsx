@@ -6,13 +6,7 @@ type Props = {
   imgUrl?: string;
 };
 
-export async function MetaHead({
-  title,
-  defaultTitle = "Haniep Fathan R",
-  description,
-  Url = "https://haniep-portofolio.vercel.app",
-  imgUrl = "/img/code.webp",
-}: Props) {
+export function MetaHead({ title, defaultTitle = "Haniep Fathan R", description, Url = "https://haniep-portofolio.vercel.app", imgUrl = "/img/code.webp" }: Props) {
   return (
     <head>
       <title>{title + " | " + defaultTitle}</title>
@@ -46,6 +40,9 @@ export async function MetaHead({
 
       {/* Mencegah masalah konten duplikat dengan menunjukkan URL kanonik (utama) dari halaman. */}
       <link rel="canonical" href="https://haniep-fathan.vercel.app" />
+
+      {/* Modern Normalize CSS */}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css" integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
     </head>
   );
 }

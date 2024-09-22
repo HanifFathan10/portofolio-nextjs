@@ -1,14 +1,12 @@
 import anime from "animejs";
-import { Reveal } from "../Reveal";
+import Image from "next/image";
 
 const WaterDropGrid = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Reveal>
-      <div className="relative w-full flex flex-col justify-center">
-        <DotGrid />
-        {children}
-      </div>
-    </Reveal>
+    <div className="relative w-full flex flex-col justify-center" data-aos="fade-left" data-aos-duration="500">
+      <DotGrid />
+      {children}
+    </div>
   );
 };
 
@@ -49,14 +47,8 @@ const DotGrid = () => {
   for (let i = 0; i < GRID_WIDTH; i++) {
     for (let j = 0; j < GRID_HEIGHT; j++) {
       dots.push(
-        <div
-          className="group cursor-pointer rounded-full p-2 transition-colors hover:bg-slate-600"
-          data-index={index}
-          key={`${i}-${j}`}>
-          <div
-            className="dot-point h-2 w-2 rounded-full bg-gradient-to-b from-slate-700 to-slate-400 opacity-50 group-hover:from-indigo-600 group-hover:to-white"
-            data-index={index}
-          />
+        <div className="group cursor-pointer rounded-full p-2 transition-colors hover:bg-slate-600" data-index={index} key={`${i}-${j}`}>
+          <div className="dot-point h-2 w-2 rounded-full bg-gradient-to-b from-slate-700 to-slate-400 opacity-50 group-hover:from-indigo-600 group-hover:to-white" data-index={index} />
         </div>
       );
       index++;
@@ -64,13 +56,10 @@ const DotGrid = () => {
   }
 
   return (
-    <div
-      onClick={handleDotClick}
-      style={{ gridTemplateColumns: `repeat(${GRID_WIDTH}, 1fr)` }}
-      className="max-sm:relative grid w-fit">
-      <h1 className="sm:hidden absolute flex items-center text-xs top-6 left-72 font-jetBrains">
+    <div onClick={handleDotClick} style={{ gridTemplateColumns: `repeat(${GRID_WIDTH}, 1fr)` }} className="max-sm:relative grid w-fit">
+      <h1 className="sm:hidden absolute flex items-center text-xs top-6 left-72 font-jetBrains z-[999999]">
         tap
-        <img src="/img/tap.webp" loading="lazy" alt="tap" className="w-5 h-5" />
+        <Image src="/img/tap.webp" loading="lazy" alt="tap" className="w-5 h-5" width={20} height={20} />
       </h1>
       {dots}
     </div>
