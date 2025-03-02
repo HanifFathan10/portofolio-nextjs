@@ -121,7 +121,8 @@ const AboutSection = ({ id }: { id: string }) => {
         <React.Fragment>
           <h1 className="text-xs font-extralight my-3">What do I use?</h1>
           <div
-            className={`grid grid-rows-2 place-content-center space-y-1 ${jetBrains.className}`}>
+            className={`grid grid-rows-2 place-content-center space-y-1 ${jetBrains.className}`}
+          >
             <Marquee autoFill={true} speed={100} className=" py-2">
               {ListData.slice(0, 9).map((result, i) => {
                 return (
@@ -133,7 +134,8 @@ const AboutSection = ({ id }: { id: string }) => {
               autoFill={true}
               speed={100}
               className=" py-2"
-              direction="right">
+              direction="right"
+            >
               {ListData.slice(9, 18).map((result, i) => {
                 return (
                   <ListSkills src={result.svg} title={result.skill} key={i} />
@@ -150,28 +152,6 @@ const AboutSection = ({ id }: { id: string }) => {
       content: (
         <ol className="relative border-s border-gray-200 dark:border-gray-700 mt-5 ml-5">
           <li className="mb-10 ms-6">
-            <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-              <Image
-                src="/img/bppi.webp"
-                alt="bppi"
-                width={20}
-                height={20}
-                loading="lazy"
-              />
-            </span>
-            <Link href={"https://sma.bppi.sch.id/"}>
-              <h3 className="mb-1 text-sm md:text-lg font-semibold text-gray-900 dark:text-white border-b border-white/80 hover:border-0 max-w-fit">
-                SMA BPPI BALEENDAH
-              </h3>
-            </Link>
-            <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-200">
-              2020 - 2023
-            </time>
-            <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-              Science
-            </p>
-          </li>
-          <li className="ms-6">
             <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
               <Image
                 src="/img/ukri.webp"
@@ -193,6 +173,28 @@ const AboutSection = ({ id }: { id: string }) => {
               Informatics Engineering
             </p>
           </li>
+          <li className="ms-6">
+            <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+              <Image
+                src="/img/bppi.webp"
+                alt="bppi"
+                width={20}
+                height={20}
+                loading="lazy"
+              />
+            </span>
+            <Link href={"https://sma.bppi.sch.id/"}>
+              <h3 className="mb-1 text-sm md:text-lg font-semibold text-gray-900 dark:text-white border-b border-white/80 hover:border-0 max-w-fit">
+                SMA BPPI BALEENDAH
+              </h3>
+            </Link>
+            <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-200">
+              2020 - 2023
+            </time>
+            <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+              Science
+            </p>
+          </li>
         </ol>
       ),
     },
@@ -210,7 +212,8 @@ const AboutSection = ({ id }: { id: string }) => {
                 <Link
                   target="_blank"
                   href={"https://www.linkedin.com/company/kawan-kerja/"}
-                  className={`text-xs font-bold hover:underline ${jetBrains.className}`}>
+                  className={`text-xs font-bold hover:underline ${jetBrains.className}`}
+                >
                   Kawan Kerja
                 </Link>
               </p>
@@ -242,7 +245,8 @@ const AboutSection = ({ id }: { id: string }) => {
   return (
     <section
       className="max-w-[1440px] grid grid-cols-1 md:grid-cols-2 gap-28 md:gap-6 place-self-center p-8 xl:gap-16 sm:py-16 xl:px-16 text-white mb-20 sm:mt-20"
-      id={id}>
+      id={id}
+    >
       <HoverTildCard />
       <WaterDropGrid>
         <div className="absolute w-full h-fit mt-16 md:mt-12 text-lg flex flex-col backdrop-brightness-50 rounded-xl">
@@ -260,19 +264,22 @@ const AboutSection = ({ id }: { id: string }) => {
           <div className="flex justify-start mt-8 gap-4">
             <TabButton
               selectTab={() => HandleTabChange("skill")}
-              active={tab === "skill"}>
+              active={tab === "skill"}
+            >
               {" "}
               Skills{" "}
             </TabButton>
             <TabButton
               selectTab={() => HandleTabChange("experience")}
-              active={tab === "experience"}>
+              active={tab === "experience"}
+            >
               {" "}
               Experience{" "}
             </TabButton>
             <TabButton
               selectTab={() => HandleTabChange("education")}
-              active={tab === "education"}>
+              active={tab === "education"}
+            >
               {" "}
               Education{" "}
             </TabButton>

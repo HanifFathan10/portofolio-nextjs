@@ -22,7 +22,11 @@ export const jetBrains = JetBrains_Mono({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
 });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   useEffect(() => {
     AOS.init({
       easing: "ease-in-out-cubic",
@@ -36,8 +40,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   }, []);
   return (
     <html lang="en">
-      <MetaHead title="Personal Website" description="ini metadata untuk home page" />
-      <body className={`${poppins.variable} ${jetBrains.variable} scroll-smooth`}>{children}</body>
+      <MetaHead
+        title="Personal Website"
+        description="ini metadata untuk home page"
+      />
+      <body
+        className={`${poppins.variable} ${jetBrains.variable} scroll-smooth`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

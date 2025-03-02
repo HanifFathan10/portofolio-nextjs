@@ -16,7 +16,7 @@ export interface Ilinks {
 const NavLinks: Ilinks[] = [
   {
     title: "HOME",
-    href: "/",
+    href: "#",
   },
   {
     title: "ABOUT",
@@ -84,7 +84,8 @@ const Navbar = () => {
       <div className="flex flex-wrap items-center justify-between mx-auto px-3 py-[6px]">
         <Link
           href={"/"}
-          className="font-normal tracking-widest text-lg text-white font-jetBrains">
+          className="font-normal tracking-widest text-lg text-white font-jetBrains"
+        >
           Haniep Fathan
         </Link>
 
@@ -93,12 +94,14 @@ const Navbar = () => {
           transition={{
             duration: 0.5,
             ease: "easeInOut",
-          }}>
+          }}
+        >
           <motion.button
             initial={false}
             animate={active ? "open" : "closed"}
             onClick={() => setActive((pv) => !pv)}
-            className="relative block md:hidden h-16 w-16 rounded-full toggle-button">
+            className="relative block md:hidden h-16 w-16 rounded-full toggle-button"
+          >
             <motion.span
               variants={VARIANTS.top}
               className="absolute h-1 w-10 bg-white"
